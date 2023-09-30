@@ -1,2 +1,2 @@
 # LeetCode
-LeetCode exercises to deepen my understanding about datascrutures and performance
+LeetCode exercises to deepen my understanding about datastructures and performance
