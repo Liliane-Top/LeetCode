@@ -120,15 +120,18 @@ class LinkedListTests {
     list.append(67);
 
     list.set(2, 7);
-    assertEquals(5, list.getLength());
-    assertEquals(67, list.get(list.getLength() - 1));
+    assertEquals(4, list.getLength());
+    assertEquals(7, list.get(2).value);
 
-		assertTrue(list.set(5, 235));
-	  assertEquals(6, list.getLength());
-		assertEquals(236, list.get(5).value);
-		assertEquals(89, list.get(3).value);
-		assertFalse(list.set(10, 34));
+    assertTrue(list.set(1, 235));
+    assertEquals(235, list.get(1).value);
+    assertEquals(67, list.get(3).value);
+    assertFalse(list.set(10, 34));
+    assertFalse(list.set(-1, 34));
 
+    list.makeEmpty();
+
+    assertFalse(list.set(0, 55));
   }
 }
 
