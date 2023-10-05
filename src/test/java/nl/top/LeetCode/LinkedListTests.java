@@ -199,4 +199,17 @@ class LinkedListTests {
     list.makeEmpty();
     assertNull(list.findMiddleNode());
   }
+
+  @Test
+  void call_hasLoop() {
+    LinkedList list = new LinkedList(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+
+    list.getTail().next = list.getHead().next;
+
+    assertTrue(list.hasLoop());
+  }
 }

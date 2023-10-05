@@ -224,4 +224,9 @@ public class LinkedList {
     }
     return slow;
   }
+
+  public boolean hasLoop() {
+
+    return false;
+  }
 }
