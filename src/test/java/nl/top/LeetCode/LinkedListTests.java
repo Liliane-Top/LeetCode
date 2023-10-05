@@ -182,4 +182,21 @@ class LinkedListTests {
     assertEquals(1, list.get(list.getLength() - 1).value);
     assertEquals(4, list.get(0).value);
   }
+
+  @Test
+  void call_findMiddleNode() {
+    LinkedList list = new LinkedList(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+
+    assertEquals(3, list.findMiddleNode().value);
+
+    list.append(6);
+    assertEquals(4, list.findMiddleNode().value);
+
+    list.makeEmpty();
+    assertNull(list.findMiddleNode());
+  }
 }
