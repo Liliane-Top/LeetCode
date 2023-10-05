@@ -208,6 +208,8 @@ class LinkedListTests {
     list.append(4);
     list.append(5);
 
+    assertFalse(list.hasLoop());
+
     list.getTail().next = list.getHead().next;
 
     assertTrue(list.hasLoop());
