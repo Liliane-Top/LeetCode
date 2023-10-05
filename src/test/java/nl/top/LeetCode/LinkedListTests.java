@@ -102,7 +102,9 @@ class LinkedListTests {
     list.append(89);
     list.append(67);
 
-    assertEquals(89, list.get(2).value);
+    assertEquals(5, list.get(0).value);
+	  assertEquals(3, list.get(1).value);
+	  assertEquals(89, list.get(2).value);
     assertEquals(67, list.get(3).value);
     assertNull(list.get(4));
     assertNull(list.get(-1));
