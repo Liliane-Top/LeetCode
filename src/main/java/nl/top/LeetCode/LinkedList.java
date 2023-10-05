@@ -173,11 +173,39 @@ public class LinkedList {
     if (index == 0) {
       return removeFirst();
     }
-		
+
     Node pre = get(index - 1);
     pre.next = temp.next;
     temp.next = null;
     length--;
     return temp;
+  }
+
+  public void reverse() {
+    Node dummy = new Node(0);
+    Node temp = dummy;
+
+    for (int i = 0; i < length; i++) {
+      temp.next = get(length - 1 - i);
+      temp = temp.next;
+    }
+    temp.next = null;
+    head = dummy.next;
+  }
+
+  public void reverse3() {
+    Node current = head;
+    head = tail;
+    tail = current;
+
+    Node after;
+    Node before = null;
+
+    while (current != null) {
+      after = current.next;
+      current.next = before;
+      before = current;
+      current = after;
+    }
   }
 }
