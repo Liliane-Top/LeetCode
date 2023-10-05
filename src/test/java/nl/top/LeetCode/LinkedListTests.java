@@ -214,4 +214,16 @@ class LinkedListTests {
 
     assertTrue(list.hasLoop());
   }
+
+  @Test
+  void call_findKthFromEnd() {
+    LinkedList list = new LinkedList(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+
+    assertEquals(4, list.findKthFromEnd(2).value);
+    assertEquals(2, list.findKthFromEnd(4).value);
+  }
 }
