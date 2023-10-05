@@ -104,4 +104,11 @@ public class LinkedList {
     }
     length++;
   }
+
+  public Node removeFirst() {
+    if (length == 0) {
+      return null;
+    }
+    return null;
+  }
 }

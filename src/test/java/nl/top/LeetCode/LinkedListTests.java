@@ -70,6 +70,24 @@ class LinkedListTests {
     assertEquals(3, list.getHead().value);
     assertEquals(78, list.getTail().value);
   }
+
+  @Test
+  void call_removeFirst() {
+    LinkedList list = new LinkedList(5);
+    list.append(3);
+    list.append(89);
+    list.prepend(67);
+
+    assertEquals(4, list.getLength());
+    assertEquals(67, list.getHead().value);
+    assertEquals(89, list.getTail().value);
+
+    assertEquals(67, list.removeFirst().value);
+    assertEquals(3, list.getLength());
+    assertEquals(89, list.getTail().value);
+
+    assertEquals(5, list.removeFirst().value);
+  }
 }
 
 //  }
