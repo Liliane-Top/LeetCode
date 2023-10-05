@@ -255,5 +255,33 @@ public class LinkedList {
     return slow;
   }
 
-  public void partitionList(int x) {}
+  public void partitionList(int x) {
+
+    if (head == null) {
+      return;
+    }
+
+    Node dummy1 = new Node(0);
+    Node dummy2 = new Node(0);
+
+    Node less = dummy1;
+    Node more = dummy2;
+
+    Node current = head;
+
+    while (current != null) {
+      if (current.value < x) {
+        less.next = current;
+        less = less.next;
+      } else {
+        more.next = current;
+        more = more.next;
+      }
+      current = current.next;
+    }
+
+    head = dummy1.next;
+    less.next = dummy2.next;
+    more.next = null;
+  }
 }

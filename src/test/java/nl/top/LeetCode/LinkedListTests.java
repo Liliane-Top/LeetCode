@@ -243,5 +243,24 @@ class LinkedListTests {
     assertEquals(8, list.get(3).value);
     assertEquals(5, list.get(4).value);
     assertEquals(10, list.get(5).value);
+
+    LinkedList list2 = new LinkedList(1);
+    list2.append(4);
+    list2.append(3);
+    list2.append(2);
+    list2.append(5);
+    list2.append(2);
+
+    list2.partitionList(3);
+    assertEquals(1, list2.get(0).value);
+    assertEquals(2, list2.get(1).value);
+    assertEquals(2, list2.get(2).value);
+    assertEquals(4, list2.get(3).value);
+    assertEquals(3, list2.get(4).value);
+    assertEquals(5, list2.get(5).value);
+
+    list.makeEmpty();
+    list.partitionList(2);
+    assertNull(list.getHead());
   }
 }
