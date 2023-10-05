@@ -226,4 +226,22 @@ class LinkedListTests {
     assertEquals(4, list.findKthFromEnd(2).value);
     assertEquals(2, list.findKthFromEnd(4).value);
   }
+
+  @Test
+  void call_partitionList() {
+    LinkedList list = new LinkedList(3);
+    list.append(8);
+    list.append(5);
+    list.append(10);
+    list.append(2);
+    list.append(1);
+
+    list.partitionList(5);
+    assertEquals(3, list.get(0).value);
+    assertEquals(2, list.get(1).value);
+    assertEquals(1, list.get(2).value);
+    assertEquals(8, list.get(3).value);
+    assertEquals(5, list.get(4).value);
+    assertEquals(10, list.get(5).value);
+  }
 }

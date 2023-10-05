@@ -254,4 +254,6 @@ public class LinkedList {
 
     return slow;
   }
+
+  public void partitionList(int x) {}
 }
