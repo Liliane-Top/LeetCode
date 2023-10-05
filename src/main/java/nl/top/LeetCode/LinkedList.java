@@ -63,9 +63,33 @@ public class LinkedList {
     if (length == 0) {
       head = newNode;
     } else {
-      head.next = newNode;
+      tail.next = newNode;
     }
     tail = newNode;
     length++;
+  }
+
+  public Node removeLast() {
+    if (length == 0) {
+      return null;
+    }
+
+    Node temp = head;
+    Node pre = head;
+
+    while (temp.next != null) {
+      pre = temp;
+      temp = temp.next;
+    }
+    tail = pre;
+    tail.next = null;
+    length--;
+
+    if (length == 0) {
+      head = null;
+      tail = null;
+    }
+
+    return temp;
   }
 }

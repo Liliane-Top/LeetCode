@@ -35,15 +35,24 @@ class LinkedListTests {
     list.append(3);
     list.append(89);
     list.append(6);
+
     list.printList();
     list.removeLast();
     list.printList();
     assertEquals(4, list.getLength());
     assertEquals(89, list.getTail().value);
+
     list.removeLast();
     list.printList();
     assertEquals(3, list.getLength());
     assertEquals(3, list.getTail().value);
+    assertEquals(3, list.removeLast().value);
+    assertEquals(8, list.removeLast().value);
+    assertEquals(5, list.removeLast().value);
+    assertEquals(null, list.removeLast());
+    assertEquals(0, list.getLength());
+    assertNull(list.getHead());
+    assertNull(list.getTail());
   }
 }
 
