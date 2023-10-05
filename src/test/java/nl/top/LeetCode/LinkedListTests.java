@@ -133,6 +133,21 @@ class LinkedListTests {
 
     assertFalse(list.set(0, 55));
   }
+
+  @Test
+  void call_insert() {
+    LinkedList list = new LinkedList(5);
+    list.append(3);
+    list.append(89);
+    list.append(67);
+
+    assertTrue(list.insert(2, 81));
+    assertEquals(5, list.getLength());
+    assertFalse(list.insert(-1, 67));
+    assertFalse(list.insert(6, 67));
+    assertEquals(81, list.get(2));
+    assertEquals(89, list.get(3));
+  }
 }
 
 //  }
