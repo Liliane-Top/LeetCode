@@ -134,4 +134,8 @@ public class LinkedList {
     }
     return temp;
   }
+
+  public boolean set(int index, int value) {
+    return false;
+  }
 }
