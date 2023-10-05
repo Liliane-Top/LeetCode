@@ -145,8 +145,11 @@ class LinkedListTests {
     assertEquals(5, list.getLength());
     assertFalse(list.insert(-1, 67));
     assertFalse(list.insert(6, 67));
-    assertEquals(81, list.get(2));
-    assertEquals(89, list.get(3));
+    assertEquals(81, list.get(2).value);
+    assertEquals(89, list.get(3).value);
+    assertTrue(list.insert(0, 125));
+    assertEquals(125, list.get(0).value);
+    assertEquals(5, list.get(1).value);
   }
 }
 
