@@ -27,6 +27,24 @@ class LinkedListTests {
     assertEquals(5, list.getHead().value);
     assertEquals(5, list.getTail().value);
   }
+
+  @Test
+  void call_removeLast() {
+    LinkedList list = new LinkedList(5);
+    list.append(8);
+    list.append(3);
+    list.append(89);
+    list.append(6);
+    list.printList();
+    list.removeLast();
+    list.printList();
+    assertEquals(4, list.getLength());
+    assertEquals(89, list.getTail().value);
+    list.removeLast();
+    list.printList();
+    assertEquals(3, list.getLength());
+    assertEquals(3, list.getTail().value);
+  }
 }
 
 //  }
