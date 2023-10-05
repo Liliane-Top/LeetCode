@@ -94,6 +94,19 @@ class LinkedListTests {
     assertNull(list.getHead());
     assertNull(list.getTail());
   }
+
+  @Test
+  void call_get() {
+    LinkedList list = new LinkedList(5);
+    list.append(3);
+    list.append(89);
+    list.append(67);
+
+    assertEquals(89, list.get(2).value);
+    assertEquals(67, list.get(3).value);
+    assertNull(list.get(4));
+    assertNull(list.get(-1));
+  }
 }
 
 //  }

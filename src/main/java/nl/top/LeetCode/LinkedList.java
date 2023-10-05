@@ -122,4 +122,8 @@ public class LinkedList {
 
     return temp;
   }
+
+  public Node get(int index) {
+    return null;
+  }
 }
