@@ -51,4 +51,21 @@ public class LinkedList {
       printList();
     }
   }
+
+  public void makeEmpty() {
+    head = null;
+    tail = null;
+    length = 0;
+  }
+
+  public void append(int value) {
+    Node newNode = new Node(value);
+    if (length == 0) {
+      head = newNode;
+    } else {
+      head.next = newNode;
+    }
+    tail = newNode;
+    length++;
+  }
 }

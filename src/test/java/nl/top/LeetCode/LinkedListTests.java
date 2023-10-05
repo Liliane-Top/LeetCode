@@ -1,19 +1,34 @@
 package nl.top.LeetCode;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
 class LinkedListTests {
 
   @Test
-  void call_append() {
+  void call_append_and_printList() {
     LinkedList list = new LinkedList(1);
-		list.printList();
+    list.append(2);
+    list.printList();
+
+    assertEquals(1, list.getHead().value);
+    assertEquals(2, list.getHead().next.value);
+    assertEquals(2, list.getTail().value);
+    assertNull(list.getTail().next);
+
+    list.makeEmpty();
+    assertEquals(null, list.getHead());
+    assertEquals(null, list.getTail());
+    assertEquals(0, list.getLength());
+    list.append(5);
+    assertEquals(1, list.getLength());
+    assertEquals(5, list.getHead().value);
+    assertEquals(5, list.getTail().value);
   }
 }
 
-//    assertEquals(1, list.getHead().value);
-//    assertEquals(2, list.getHead().next.value);
 //  }
 //
 //  @Test
