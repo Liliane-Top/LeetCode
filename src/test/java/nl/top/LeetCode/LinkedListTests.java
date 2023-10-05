@@ -87,6 +87,12 @@ class LinkedListTests {
     assertEquals(89, list.getTail().value);
 
     assertEquals(5, list.removeFirst().value);
+    assertEquals(2, list.getLength());
+    assertEquals(3, list.removeFirst().value);
+    assertEquals(89, list.removeFirst().value);
+    assertNull(list.removeFirst());
+    assertNull(list.getHead());
+    assertNull(list.getTail());
   }
 }
 
