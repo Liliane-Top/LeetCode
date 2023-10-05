@@ -163,4 +163,21 @@ public class LinkedList {
 
     return true;
   }
+
+  public Node remove(int index) {
+    Node temp = get(index);
+    if (temp == null) {
+      return null;
+    }
+
+    if (index == 0) {
+      return removeFirst();
+    }
+		
+    Node pre = get(index - 1);
+    pre.next = temp.next;
+    temp.next = null;
+    length--;
+    return temp;
+  }
 }

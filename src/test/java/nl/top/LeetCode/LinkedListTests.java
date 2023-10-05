@@ -151,6 +151,21 @@ class LinkedListTests {
     assertEquals(125, list.get(0).value);
     assertEquals(5, list.get(1).value);
   }
+
+  @Test
+  void call_remove() {
+    LinkedList list = new LinkedList(5);
+    list.append(3);
+    list.append(89);
+    list.append(67);
+
+    assertEquals(null, list.remove(4));
+    assertEquals(null, list.remove(-1));
+    assertEquals(89, list.remove(2).value);
+    assertEquals(5, list.remove(0).value);
+    assertEquals(2, list.getLength());
+    assertEquals(67, list.remove(1).value);
+  }
 }
 
 //  }
