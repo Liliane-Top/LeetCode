@@ -54,6 +54,22 @@ class LinkedListTests {
     assertNull(list.getHead());
     assertNull(list.getTail());
   }
+
+  @Test
+  void call_prepend() {
+    LinkedList list = new LinkedList(45);
+    list.prepend(34);
+
+    assertEquals(2, list.getLength());
+    assertEquals(34, list.getHead().value);
+    assertEquals(45, list.getTail().value);
+
+    list.append(78);
+    list.prepend(3);
+    assertEquals(4, list.getLength());
+    assertEquals(3, list.getHead().value);
+    assertEquals(78, list.getTail().value);
+  }
 }
 
 //  }
