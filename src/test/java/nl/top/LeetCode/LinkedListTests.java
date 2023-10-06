@@ -271,7 +271,7 @@ class LinkedListTests {
     list2.append(3);
     list2.append(1);
     list2.append(4);
-		list2.append(2);
+    list2.append(2);
     list2.append(2);
     list2.append(5);
 
@@ -279,5 +279,14 @@ class LinkedListTests {
 
     assertEquals(5, list2.getLength());
     assertEquals(4, list2.get(list2.getLength() - 2).value);
+  }
+
+  @Test
+  void call_binaryToDecimal() {
+    LinkedList list = new LinkedList(1);
+    list.append(0);
+    list.append(1);
+
+    assertEquals(5, list.binaryToDecimal());
   }
 }
