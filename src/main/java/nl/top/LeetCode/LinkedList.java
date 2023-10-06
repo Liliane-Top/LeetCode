@@ -1,5 +1,7 @@
 package nl.top.LeetCode;
 
+import java.util.HashSet;
+import java.util.Set;
 import lombok.Getter;
 
 @Getter
@@ -283,5 +285,36 @@ public class LinkedList {
     head = dummy1.next;
     less.next = dummy2.next;
     more.next = null;
+  }
+
+  public void removeDuplicates() {
+	  Node current = head;
+
+	  while(current != null) {
+		  Node runner = current;
+		  while(runner.next != null) {
+			  if(runner.next.value == current.value) {
+				  runner.next = runner.next.next;
+			  } else {
+				  runner = runner.next;
+			  }
+		  }
+		  current = current.next;
+	  }
+		}
+		public void removeDuplicates2(){
+    Set<Integer> values = new HashSet<>();
+    Node previous = null;
+    Node current = head;
+
+    while (current != null) {
+      if (values.add(current.value)) {
+        previous = current;
+      } else {
+        previous.next = current.next;
+        length--;
+      }
+      current = current.next;
+    }
   }
 }
