@@ -289,4 +289,18 @@ class LinkedListTests {
 
     assertEquals(5, list.binaryToDecimal());
   }
+
+  @Test
+  void call_reverseBetween() {
+    LinkedList list = new LinkedList(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+
+    list.printList();
+    list.reverseBetween(1, 3);
+    System.out.println("reverse middle");
+    list.printList();
+  }
 }
