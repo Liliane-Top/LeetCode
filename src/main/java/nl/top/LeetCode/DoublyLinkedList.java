@@ -169,18 +169,14 @@ public class DoublyLinkedList {
     }
 
     Node newNode = new Node(value);
-    Node pre = head;
-    Node after = head.next;
+    Node before = get(index - 1);
+    Node after = before.next;
 
-    for (int i = 1; i < index; i++) {
-      pre = pre.next;
-      after = after.next;
-    }
-
+    newNode.prev = before;
     newNode.next = after;
+    before.next = newNode;
     after.prev = newNode;
-    newNode.prev = pre;
-    pre.next = newNode;
+
     length++;
     return true;
   }
