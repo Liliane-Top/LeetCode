@@ -331,27 +331,24 @@ public class LinkedList {
   }
 
   public void reverseBetween(int m, int n) {
-    if (head == null) {
-      return;
-    }
+    if (head == null || m == n) return;
 
-    Node dummyNode = new Node(0);
-    dummyNode.next = head;
-    Node previousNode = dummyNode;
+    Node dummy = new Node(0);
+    dummy.next = head;
+    Node start = dummy;
 
     for (int i = 0; i < m; i++) {
-      previousNode = previousNode.next;
+      start = start.next;
     }
 
-    Node currentNode = previousNode.next;
-
+    Node current = start.next;
     for (int i = 0; i < (n - m); i++) {
-      Node nodeToMove = currentNode.next;
-      currentNode.next = nodeToMove.next;
-      nodeToMove.next = previousNode.next;
-      previousNode.next = nodeToMove;
+      Node temp = current.next;
+      current.next = temp.next;
+      temp.next = start.next;
+      start.next = temp;
     }
 
-    head = dummyNode.next;
+    head = dummy.next;
   }
 }
