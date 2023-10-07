@@ -134,15 +134,24 @@ public class DoublyLinkedList {
     return temp;
   }
 
-  public boolean set(int index, int value) {
+  public boolean set2(int index, int value) {
     if (index < 0 || index > length) return false;
 
     Node current = head;
     for (int i = 0; i < index; i++) {
       current = current.next;
     }
-		current.value = value;
+    current.value = value;
 
     return true;
+  }
+
+  public boolean set(int index, int value) {
+    Node temp = get(index);
+    if (temp != null) {
+      temp.value = value;
+			return true;
+    }
+    return false;
   }
 }

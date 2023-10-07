@@ -96,10 +96,11 @@ public class DoublyLinkedListTests {
     myDDl.append(3);
     myDDl.append(4);
 
-    myDDl.set(2, 6);
+    assertTrue(myDDl.set(2, 6));
     assertEquals(4, myDDl.getLength());
     assertEquals(6, myDDl.get(2).value);
     assertEquals(4, myDDl.get(3).value);
+    assertFalse(myDDl.set(5, 10));
 
     myDDl.printList();
   }
