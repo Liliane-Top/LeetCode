@@ -42,4 +42,19 @@ public class DoublyLinkedListTests {
     assertEquals(0, myDDl.getLength());
     assertNull(myDDl.removeLast());
   }
+
+  @Test
+  void call_prepend() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(8);
+    myDDl.prepend(7);
+    assertEquals(2, myDDl.getLength());
+
+    myDDl.makeEmpty();
+    myDDl.prepend(10);
+    assertEquals(1, myDDl.getLength());
+    myDDl.prepend(23);
+    assertEquals(2, myDDl.getLength());
+    assertEquals(23, myDDl.getHead().value);
+    myDDl.printList();
+  }
 }

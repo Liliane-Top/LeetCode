@@ -26,12 +26,14 @@ public class DoublyLinkedList {
     }
   }
 
-  public void getHead() {
+  public Node getHead() {
     System.out.println("Head: " + head.value);
+    return head;
   }
 
-  public void getTail() {
+  public Node getTail() {
     System.out.println("Tail: " + tail.value);
+    return tail;
   }
 
   public int getLength() {
@@ -45,6 +47,12 @@ public class DoublyLinkedList {
       System.out.println(temp.value);
       temp = temp.next;
     }
+  }
+
+  public void makeEmpty() {
+    head = null;
+    tail = null;
+    length = 0;
   }
 
   public void append(int value) {
@@ -74,5 +82,19 @@ public class DoublyLinkedList {
     }
     length--;
     return temp;
+  }
+
+  public void prepend(int value) {
+    Node newNode = new Node(value);
+
+    if (length == 0) {
+      head = newNode;
+      tail = newNode;
+    } else {
+      newNode.next = head;
+      head.prev = newNode;
+      head = newNode;
+    }
+    length++;
   }
 }
