@@ -180,4 +180,21 @@ public class DoublyLinkedList {
     length++;
     return true;
   }
+
+  public Node remove(int index) {
+    if (index < 0 || index > length) return null;
+    if (index == 0) return removeFirst();
+    if (index == length - 1) return removeLast();
+
+    Node before = get(index - 1);
+    Node tobeRemoved = before.next;
+    Node after = tobeRemoved.next;
+
+    before.next = after;
+    after.prev = before;
+    tobeRemoved.next = null;
+    tobeRemoved.prev = null;
+    length--;
+    return tobeRemoved;
+  }
 }
