@@ -173,4 +173,43 @@ public class DoublyLinkedListTests {
     assertEquals(1, myDDl.getTail().value);
     assertEquals(4, myDDl.getLength());
   }
+
+  @Test
+  void call_isPalindrome() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(3);
+    myDDl.append(4);
+
+    assertFalse(myDDl.isPalindrome());
+
+    DoublyLinkedList myDDl2 = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(2);
+    myDDl.append(1);
+
+    assertTrue(myDDl2.isPalindrome());
+  }
+
+  @Test
+  void call_swapPairs() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(4);
+
+    myDDl.printList();
+
+    myDDl.swapPairs();//output 1 2 3 4
+    System.out.println("swap pairs");
+    myDDl.printList();//output 2 1 4 3
+
+    assertEquals(2, myDDl.getHead().value);
+    assertEquals(2, myDDl.get(0).value);
+    assertEquals(1, myDDl.get(1).value);
+    assertEquals(4, myDDl.get(2).value);//fails  as returns 3
+    assertEquals(3, myDDl.get(myDDl.getLength() - 1).value);//fails as returns 4
+  }
 }
