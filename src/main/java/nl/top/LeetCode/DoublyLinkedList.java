@@ -201,9 +201,8 @@ public class DoublyLinkedList {
     if (length < 2) return;
 
     int headValue = head.value;
-    int tailValue = tail.value;
 
-    head.value = tailValue;
+    head.value = tail.value;
     tail.value = headValue;
   }
 }
