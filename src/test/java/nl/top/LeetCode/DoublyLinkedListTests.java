@@ -137,6 +137,19 @@ public class DoublyLinkedListTests {
     assertNull(myDDl.remove(-1));
     assertEquals(1, myDDl.remove(0).value);
     assertEquals(2, myDDl.remove(0).value);
-		assertNull(myDDl.remove(0));
+    assertNull(myDDl.remove(0));
+  }
+
+  @Test
+  void call_swapFirstLast() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(4);
+
+    myDDl.swapFirstLast();
+
+    assertEquals(4, myDDl.getHead().value);
+    assertEquals(1, myDDl.getTail().value);
   }
 }
