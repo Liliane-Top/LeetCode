@@ -104,4 +104,22 @@ public class DoublyLinkedListTests {
 
     myDDl.printList();
   }
+
+  @Test
+  void call_insert() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(4);
+
+    assertTrue(myDDl.insert(2, 6));
+    assertEquals(5, myDDl.getLength());
+    assertEquals(6, myDDl.get(2).value);
+    assertEquals(3, myDDl.get(3).value);
+    assertEquals(4, myDDl.get(4).value);
+    assertFalse(myDDl.insert(6, 10));
+    assertTrue(myDDl.insert(0, 21));
+    assertEquals(6, myDDl.getLength());
+    assertEquals(21, myDDl.getHead().value);
+  }
 }

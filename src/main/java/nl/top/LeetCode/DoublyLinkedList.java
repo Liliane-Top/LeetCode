@@ -150,8 +150,38 @@ public class DoublyLinkedList {
     Node temp = get(index);
     if (temp != null) {
       temp.value = value;
-			return true;
+      return true;
     }
     return false;
+  }
+
+  public boolean insert(int index, int value) {
+    if (index < 0 || index > length) return false;
+
+    if (index == 0) {
+      prepend(value);
+      return true;
+    }
+
+    if (index == length) {
+      append(value);
+      return true;
+    }
+
+    Node newNode = new Node(value);
+    Node pre = head;
+    Node after = head.next;
+
+    for (int i = 1; i < index; i++) {
+      pre = pre.next;
+      after = after.next;
+    }
+
+    newNode.next = after;
+    after.prev = newNode;
+    newNode.prev = pre;
+    pre.next = newNode;
+    length++;
+    return true;
   }
 }
