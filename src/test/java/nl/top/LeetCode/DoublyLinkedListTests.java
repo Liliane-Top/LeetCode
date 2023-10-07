@@ -37,7 +37,9 @@ public class DoublyLinkedListTests {
     assertEquals(10, myDDl.removeLast().value);
     assertEquals(2, myDDl.getLength());
     assertEquals(9, myDDl.removeLast().value);
+    assertEquals(1, myDDl.getLength());
     assertEquals(8, myDDl.removeLast().value);
+    assertEquals(0, myDDl.getLength());
     assertNull(myDDl.removeLast());
   }
 }
