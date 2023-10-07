@@ -88,4 +88,19 @@ public class DoublyLinkedListTests {
 
     myDDl.printList();
   }
+
+  @Test
+  void call_set() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(4);
+
+    myDDl.set(2, 6);
+    assertEquals(4, myDDl.getLength());
+    assertEquals(6, myDDl.get(2).value);
+    assertEquals(4, myDDl.get(3).value);
+
+    myDDl.printList();
+  }
 }
