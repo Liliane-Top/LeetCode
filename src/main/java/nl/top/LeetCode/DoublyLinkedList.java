@@ -115,4 +115,16 @@ public class DoublyLinkedList {
     length--;
     return temp;
   }
+
+  public Node get(int index) {
+    if (length == 0) return null;
+    if (index < 0 || index > length - 1) return null;
+
+    Node temp = head;
+    for (int i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+
+    return temp;
+  }
 }

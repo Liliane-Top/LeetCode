@@ -73,4 +73,17 @@ public class DoublyLinkedListTests {
     assertEquals(10, myDDl.getHead().value);
     assertEquals(11, myDDl.getTail().value);
   }
+
+  @Test
+  void call_get() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(4);
+
+    assertEquals(2, myDDl.get(1).value);
+    assertEquals(3, myDDl.get(2).value);
+    myDDl.append(5);
+    assertEquals(3, myDDl.get(2).value);
+  }
 }
