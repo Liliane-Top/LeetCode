@@ -152,4 +152,25 @@ public class DoublyLinkedListTests {
     assertEquals(4, myDDl.getHead().value);
     assertEquals(1, myDDl.getTail().value);
   }
+
+  @Test
+  void call_reverse() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(1);
+    myDDl.append(2);
+    myDDl.append(3);
+    myDDl.append(4);
+
+    myDDl.printList();
+    assertEquals(1, myDDl.getHead().value);
+    assertEquals(4, myDDl.getTail().value);
+    assertEquals(4, myDDl.getLength());
+
+    myDDl.reverse();
+    System.out.println("reversed list");
+    myDDl.printList();
+
+    assertEquals(4, myDDl.getHead().value);
+    assertEquals(1, myDDl.getTail().value);
+    assertEquals(4, myDDl.getLength());
+  }
 }

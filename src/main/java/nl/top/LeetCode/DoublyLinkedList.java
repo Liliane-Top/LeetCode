@@ -205,4 +205,22 @@ public class DoublyLinkedList {
     head.value = tail.value;
     tail.value = headValue;
   }
+
+  public void reverse() {
+    Node current = head;
+    Node temp = null;
+
+    while (current != null) {
+			//swap the prev pointer with the next pointer
+      temp = current.prev;
+      current.prev = current.next;
+      current.next = temp;
+			//move the pointer the to following node as the next = prev you have to use the prev pointer to get to the following node
+      current = current.prev;
+    }
+//swap the head pointer with the tail pointer
+    temp = head;
+    head = tail;
+    tail = temp;
+  }
 }
