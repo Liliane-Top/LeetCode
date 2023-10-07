@@ -85,5 +85,7 @@ public class DoublyLinkedListTests {
     assertEquals(3, myDDl.get(2).value);
     myDDl.append(5);
     assertEquals(3, myDDl.get(2).value);
+
+    myDDl.printList();
   }
 }

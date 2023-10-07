@@ -121,10 +121,16 @@ public class DoublyLinkedList {
     if (index < 0 || index > length - 1) return null;
 
     Node temp = head;
-    for (int i = 0; i < index; i++) {
-      temp = temp.next;
+    if (index < length / 2) { // if index is in first half => start at head
+      for (int i = 0; i < index; i++) {
+        temp = temp.next;
+      }
+    } else { // if index is in second half => start at tail
+      temp = tail;
+      for (int i = length - 1; i > index; i--) {
+        temp = temp.prev;
+      }
     }
-
     return temp;
   }
 }
