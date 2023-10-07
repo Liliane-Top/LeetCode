@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class DoublyLinkedLIstTests {
+public class DoublyLinkedListTests {
 
   @Test
   void call_constructor() {
@@ -24,8 +24,20 @@ public class DoublyLinkedLIstTests {
     assertEquals(2, myDDl.getLength());
     myDDl.printList();
 
-		myDDl.append(2);
-		assertEquals(3, myDDl.getLength());
+    myDDl.append(2);
+    assertEquals(3, myDDl.getLength());
+  }
 
+  @Test
+  void call_removeLast() {
+    DoublyLinkedList myDDl = new DoublyLinkedList(8);
+    myDDl.append(9);
+    myDDl.append(10);
+
+    assertEquals(10, myDDl.removeLast().value);
+    assertEquals(2, myDDl.getLength());
+    assertEquals(9, myDDl.removeLast().value);
+    assertEquals(8, myDDl.removeLast().value);
+    assertNull(myDDl.removeLast());
   }
 }

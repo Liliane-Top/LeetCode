@@ -60,4 +60,8 @@ public class DoublyLinkedList {
     tail = newNode;
     length++;
   }
+
+  public Node removeLast() {
+    return null;
+  }
 }
