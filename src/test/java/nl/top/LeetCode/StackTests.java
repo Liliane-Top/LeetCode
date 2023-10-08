@@ -81,7 +81,9 @@ class StackTests {
     assertTrue(Stack2.isBalanced("(()())"));
     assertFalse(Stack2.isBalanced("({})["));
     assertTrue(Stack2.isBalanced("({})[]"));
-	  assertTrue(Stack2.isBalanced("({[]})[]"));
-
+    assertTrue(Stack2.isBalanced("({[]})[]"));
+    assertTrue(Stack2.isBalanced(""));
+    assertFalse(Stack2.isBalanced("("));
+    assertFalse(Stack2.isBalanced(")"));
   }
 }
