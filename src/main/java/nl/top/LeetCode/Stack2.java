@@ -35,4 +35,9 @@ public class Stack2<T> {
   public void push(T data) {
     stackList.add(data);
   }
+
+  public T pop() {
+		if(isEmpty()) return null;
+    return stackList.remove(size() - 1);
+  }
 }

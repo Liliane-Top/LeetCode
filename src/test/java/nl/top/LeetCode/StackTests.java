@@ -57,5 +57,15 @@ class StackTests {
     stack.push("Liliane");
 
     stack.printStack(); // prints last element first => reversed order.
+
+    assertEquals(3, myStack.size());
+
+    assertEquals("Liliane", stack.pop());
+    assertEquals("Hello, ", stack.getStackList().get(0));
+    assertEquals("Beste ", stack.getStackList().get(1));
+
+    assertEquals("Beste ", stack.pop());
+    assertEquals("Hello, ", stack.pop());
+    assertNull(stack.pop());
   }
 }
