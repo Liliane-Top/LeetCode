@@ -1,7 +1,7 @@
 package nl.top.LeetCode;
 
 public class Stack {
-  // LIFO = last in first out
+  // LIFO = last in first out push (erbij) and pop(eraf)
 
   private Node top;
   private int height;

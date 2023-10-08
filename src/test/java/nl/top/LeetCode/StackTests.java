@@ -35,6 +35,27 @@ class StackTests {
     myStack.printStack();
     myStack.pop();
     myStack.printStack();
-    assertEquals(5, myStack.getTop());
+    assertEquals(4, myStack.getTop());
+  }
+
+  @Test
+  void call_pushStack2() {
+    Stack2 myStack = new Stack2();
+    myStack.push(1);
+    myStack.push(2);
+    myStack.push(3);
+
+    myStack.printStack();
+
+    assertEquals(1, myStack.getStackList().get(0));
+    assertEquals(2, myStack.getStackList().get(1));
+    assertEquals(3, myStack.getStackList().get(myStack.size() - 1));
+
+    Stack2 stack = new Stack2();
+    stack.push("Hello, ");
+    stack.push("Beste ");
+    stack.push("Liliane");
+
+    stack.printStack(); // prints last element first => reversed order.
   }
 }
