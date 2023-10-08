@@ -68,4 +68,10 @@ class StackTests {
     assertEquals("Hello, ", stack.pop());
     assertNull(stack.pop());
   }
+
+  @Test
+  void call_reverseString() {
+
+    assertEquals("olleH", Stack2.reverse("Hello"));
+  }
 }

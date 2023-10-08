@@ -37,7 +37,23 @@ public class Stack2<T> {
   }
 
   public T pop() {
-		if(isEmpty()) return null;
+    if (isEmpty()) return null;
     return stackList.remove(size() - 1);
+  }
+
+  public static String reverse(String input) {
+    String result = "";
+    Stack2<String> stack = new Stack2<>();
+
+    String[] letters = input.split("");
+    for (String letter : letters) {
+      stack.push(letter);
+    }
+
+    for (int i = stack.size() - 1; i >= 0; i--) {
+      result += stack.pop();
+    }
+
+    return result;
   }
 }
