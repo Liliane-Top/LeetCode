@@ -71,7 +71,17 @@ class StackTests {
 
   @Test
   void call_reverseString() {
-
     assertEquals("olleH", Stack2.reverse("Hello"));
+  }
+
+  @Test
+  void call_isBalanced() {
+    assertTrue(Stack2.isBalanced("()()()"));
+    assertFalse(Stack2.isBalanced("()(()"));
+    assertTrue(Stack2.isBalanced("(()())"));
+    assertFalse(Stack2.isBalanced("({})["));
+    assertTrue(Stack2.isBalanced("({})[]"));
+	  assertTrue(Stack2.isBalanced("({[]})[]"));
+
   }
 }
