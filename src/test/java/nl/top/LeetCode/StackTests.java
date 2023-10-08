@@ -86,4 +86,22 @@ class StackTests {
     assertFalse(Stack2.isBalanced("("));
     assertFalse(Stack2.isBalanced(")"));
   }
+
+  @Test
+  void call_sortStack() {
+    Stack2<Integer> stack = new Stack2<>();
+    stack.push(3);
+    stack.push(2);
+    stack.push(5);
+    stack.push(1);
+    stack.push(4);
+
+    System.out.println("Before sorting:");
+    stack.printStack();
+
+    Stack2.sortStack(stack);
+
+    System.out.println("\nAfter sorting:");
+    stack.printStack();
+  }
 }

@@ -61,19 +61,34 @@ public class Stack2<T> {
   }
 
   public static boolean isBalanced(String input) {
-		if(input.equals("")) return true;
+    if (input.equals("")) return true;
     Stack2<String> stack = new Stack2<>();
-		String[] signs = input.split("");
-		if(signs.length %2 != 0) return false;
+    String[] signs = input.split("");
+    if (signs.length % 2 != 0) return false;
     for (String sign : signs) {
       if (sign.equals("(") || sign.equals("[") || sign.equals("{")) {
         stack.push(sign);
-      } else if ((!stack.isEmpty() &&
-						sign.equals(")") && stack.pop().equals("("))
-            || (sign.equals("}") && stack.pop().equals("{"))
-            || (sign.equals("]") && stack.pop().equals("["))) {
-        }
+      } else if ((!stack.isEmpty() && sign.equals(")") && stack.pop().equals("("))
+          || (sign.equals("}") && stack.pop().equals("{"))
+          || (sign.equals("]") && stack.pop().equals("["))) {
+      }
     }
     return stack.isEmpty();
+  }
+
+  public static void sortStack(Stack2 stack) {
+    Stack2<Integer> sortedStack = new Stack2<>();
+    Integer original;
+    sortedStack.push((Integer) stack.pop());
+    while (!stack.isEmpty()) {
+      original = (Integer) stack.pop();
+      while (!sortedStack.isEmpty() && (sortedStack.peek() > original)) {
+        stack.push(sortedStack.pop());
+      }
+      sortedStack.push(original);
+    }
+    while (!sortedStack.isEmpty()) {
+      stack.push(sortedStack.pop());
+    }
   }
 }
