@@ -1,6 +1,6 @@
 package nl.top.LeetCode;
 
-public class MyQueue {
+public class MyQueue { // FIFO first in is First out "denk aan een rij mensen voor loket"
   private Stack2<Integer> stack1;
   private Stack2<Integer> stack2;
 
@@ -17,6 +17,11 @@ public class MyQueue {
     while (!stack2.isEmpty()) {
       stack1.push(stack2.pop());
     }
+  }
+
+  public Integer dequeue() {
+    if (stack1.isEmpty()) return null;
+    return stack1.pop();
   }
 
   public int peek() {
