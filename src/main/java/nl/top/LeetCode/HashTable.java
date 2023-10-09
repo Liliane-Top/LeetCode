@@ -96,14 +96,13 @@ public class HashTable {
   }
 
   public static boolean itemInCommon(int[] array1, int[] array2) {
-    HashMap<Integer, Boolean> map1 = new HashMap<>();
-    for (int i = 0; i < array1.length; i++) {
-      map1.put(array1[i], true);
-    }
-    for (int i = 0; i < array2.length; i++) {
-      if (map1.get(array2[i]) != null) {
-        return true;
-      }
+    HashMap<Integer, Boolean> map = new HashMap<>();
+
+		for (int number : array1) {
+		    map.put(number, true);
+		}
+    for(int number : array2) {
+			if(map.get(number) != null) return true;
     }
     return false;
   }

@@ -1,5 +1,6 @@
 package nl.top.LeetCode;
 
+import static nl.top.LeetCode.HashTable.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -40,6 +41,11 @@ public class HashTableTests {
 
     int[] array1 = {1, 3, 5};
     int[] array2 = {2, 4, 5};
-    assertEquals(true, HashTable.itemInCommon(array1, array2));
+    assertTrue(itemInCommon(array1, array2));
+
+    int[] array3 = {1, 3, 5};
+    int[] array4 = {2, 4, 6};
+
+    assertFalse(itemInCommon(array3, array4));
   }
 }
