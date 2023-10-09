@@ -1,6 +1,7 @@
 package nl.top.LeetCode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HashTable {
 
@@ -75,11 +76,11 @@ public class HashTable {
     ArrayList<String> allKeys = new ArrayList<>();
     for (int i = 0; i < size; i++) {
       Node temp = dataMap[i];
-        while (temp != null) {
-          allKeys.add(temp.key);
-          temp = temp.next;
-        }
+      while (temp != null) {
+        allKeys.add(temp.key);
+        temp = temp.next;
       }
+    }
     return allKeys;
   }
 
@@ -92,5 +93,18 @@ public class HashTable {
       this.key = key;
       this.value = value;
     }
+  }
+
+  public static boolean itemInCommon(int[] array1, int[] array2) {
+    HashMap<Integer, Boolean> map1 = new HashMap<>();
+    for (int i = 0; i < array1.length; i++) {
+      map1.put(array1[i], true);
+    }
+    for (int i = 0; i < array2.length; i++) {
+      if (map1.get(array2[i]) != null) {
+        return true;
+      }
+    }
+    return false;
   }
 }

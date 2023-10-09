@@ -31,6 +31,15 @@ public class HashTableTests {
     myHashTable.printTable();
 
     assertEquals(
-        new ArrayList<>(Arrays.asList("screws", "bolts", "nails", "tile", "lumber")), myHashTable.keys());
+        new ArrayList<>(Arrays.asList("screws", "bolts", "nails", "tile", "lumber")),
+        myHashTable.keys());
+  }
+
+  @Test
+  void call_itemInCommon() {
+
+    int[] array1 = {1, 3, 5};
+    int[] array2 = {2, 4, 5};
+    assertEquals(true, HashTable.itemInCommon(array1, array2));
   }
 }
