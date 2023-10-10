@@ -141,9 +141,10 @@ public class HashTable {
     return duplicates;
   }
 
-  public static Character firstNonRepeating(String input) {
+  public static Character firstNonRepeating2(String input) {
     Map<Character, Integer> letters = new HashMap<>();
     List<Character> singles = new ArrayList<>();
+
     for (Character letter : input.toCharArray()) {
       if (letters.get(letter) == null) { // if it is not in the map add to map and to list
         letters.put(letter, 1);
@@ -153,5 +154,23 @@ public class HashTable {
       }
     }
     return singles.isEmpty() ? null : singles.get(0);
+  }
+
+  public static Character firstNonRepeating(String string) {
+    Map<Character, Integer> charCounts = new HashMap<>();
+
+    for (int i = 0; i < string.length(); i++) {
+      char c = string.charAt(i);
+      charCounts.put(c, charCounts.getOrDefault(c, 0) + 1);
+    }
+
+    for (int i = 0; i < string.length(); i++) {
+      char c = string.charAt(i);
+      if (charCounts.get(c) == 1) {
+        return c;
+      }
+    }
+
+    return null;
   }
 }
