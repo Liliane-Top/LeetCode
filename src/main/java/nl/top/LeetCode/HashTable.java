@@ -1,9 +1,11 @@
 package nl.top.LeetCode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class HashTable {
 
@@ -161,7 +163,13 @@ public class HashTable {
 
     for (int i = 0; i < string.length(); i++) {
       char c = string.charAt(i);
-      charCounts.put(c, charCounts.getOrDefault(c, 0) + 1);
+      charCounts.put(
+          c,
+          charCounts.getOrDefault(c, 0)
+              + 1); // The first loop counts the frequency of each character by using a HashMap. For
+      // each character, the code checks if it already exists in the HashMap, and if
+      // it does, it increments its count. If it doesn't exist, it initializes its
+      // count to 1.
     }
 
     for (int i = 0; i < string.length(); i++) {
@@ -170,7 +178,31 @@ public class HashTable {
         return c;
       }
     }
-
     return null;
+  }
+
+  public static List<List<String>> groupAnagrams(String[] strings) {
+    Map<String, List<String>> anagrams = new HashMap<>();
+    List<List<String>> result = new ArrayList<>();
+
+    for (String string : strings) {
+      String key = Arrays.stream(string.split("")).sorted().collect(Collectors.joining());
+      if (anagrams.get(key) == null) {
+        ArrayList<String> anagram = new ArrayList<>();
+        anagram.add(string);
+        anagrams.put(key, anagram);
+      } else { // key is already in map
+        var list = anagrams.get(key); // find the list belonging to that key and add the string
+        list.add(string);
+        anagrams.put(key, list);
+      }
+    }
+    for (Map.Entry<String, List<String>> entrySet : anagrams.entrySet()) {
+      result.add(entrySet.getValue());
+    }
+
+    return result.stream()
+        .sorted((s1, s2) -> s2.size() - s1.size())
+        .toList(); // sort result on length
   }
 }
