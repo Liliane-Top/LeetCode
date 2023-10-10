@@ -183,11 +183,10 @@ public class HashTable {
 
   public static List<List<String>> groupAnagrams(String[] strings) {
     Map<String, List<String>> anagrams = new HashMap<>();
-    List<List<String>> result = new ArrayList<>();
 
     for (String string : strings) {
-      String key = Arrays.stream(string.split("")).sorted().collect(Collectors.joining());
-      if (anagrams.get(key) == null) {
+      String key = Arrays.stream(string.split("")).sorted().collect(Collectors.joining());//create key
+      if (anagrams.get(key) == null) {//check if key exists if not add it with new ArrayList with added string
         ArrayList<String> anagram = new ArrayList<>();
         anagram.add(string);
         anagrams.put(key, anagram);
@@ -196,10 +195,10 @@ public class HashTable {
       }
     }
 
-    return new ArrayList<>(anagrams.values());
+    return new ArrayList<>(anagrams.values());//create a empty arrayList and add the values from hashmap (List<string) to it.
   }
 }
-
+// List<List<String> result = new ArrayList<>();
 //    for (Map.Entry<String, List<String>> entrySet : anagrams.entrySet()) {
 //      result.add(entrySet.getValue());
 //    }
