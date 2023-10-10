@@ -185,8 +185,10 @@ public class HashTable {
     Map<String, List<String>> anagrams = new HashMap<>();
 
     for (String string : strings) {
-      String key = Arrays.stream(string.split("")).sorted().collect(Collectors.joining());//create key
-      if (anagrams.get(key) == null) {//check if key exists if not add it with new ArrayList with added string
+      String key =
+          Arrays.stream(string.split("")).sorted().collect(Collectors.joining()); // create key
+      if (anagrams.get(key)
+          == null) { // check if key exists if not add it with new ArrayList with added string
         ArrayList<String> anagram = new ArrayList<>();
         anagram.add(string);
         anagrams.put(key, anagram);
@@ -195,16 +197,23 @@ public class HashTable {
       }
     }
 
-    return new ArrayList<>(anagrams.values());//create a empty arrayList and add the values from hashmap (List<string) to it.
+    return new ArrayList<>(
+        anagrams
+            .values()); // create an empty arrayList and add the values from hashmap (List<string)
+    // to it.
+  }
+
+  public static int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> sums = new HashMap<>();
+
+    for (int i = 0; i < nums.length; i++) {
+      if (sums.containsKey(nums[i])) {
+        return new int[] {sums.get(nums[i]), i};
+      } else {
+        Integer key = target - nums[i];
+        sums.put(key, i);
+      }
+    }
+    return new int[] {};
   }
 }
-// List<List<String> result = new ArrayList<>();
-//    for (Map.Entry<String, List<String>> entrySet : anagrams.entrySet()) {
-//      result.add(entrySet.getValue());
-//    }
-//
-//    return result.stream()
-//        .sorted((s1, s2) -> s2.size() - s1.size())
-//        .toList(); // sort result on length
-//  }
-// }
