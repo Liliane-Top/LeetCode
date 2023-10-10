@@ -191,18 +191,21 @@ public class HashTable {
         ArrayList<String> anagram = new ArrayList<>();
         anagram.add(string);
         anagrams.put(key, anagram);
-      } else { // key is already in map
-        var list = anagrams.get(key); // find the list belonging to that key and add the string
-        list.add(string);
-        anagrams.put(key, list);
+      } else { // key is already in map, find it and add the string
+        anagrams.get(key).add(string);
       }
     }
-    for (Map.Entry<String, List<String>> entrySet : anagrams.entrySet()) {
-      result.add(entrySet.getValue());
-    }
 
-    return result.stream()
-        .sorted((s1, s2) -> s2.size() - s1.size())
-        .toList(); // sort result on length
+    return new ArrayList<>(anagrams.values());
   }
 }
+
+//    for (Map.Entry<String, List<String>> entrySet : anagrams.entrySet()) {
+//      result.add(entrySet.getValue());
+//    }
+//
+//    return result.stream()
+//        .sorted((s1, s2) -> s2.size() - s1.size())
+//        .toList(); // sort result on length
+//  }
+// }

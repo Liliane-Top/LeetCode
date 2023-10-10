@@ -87,16 +87,16 @@ public class HashTableTests {
     String[] input = new String[] {"eat", "tea", "tan", "ate", "nat", "bat"};
     List<List<String>> output = new ArrayList<>();
     output.add(new ArrayList<>(Arrays.asList("eat", "tea", "ate")));
-    output.add(new ArrayList<>(Arrays.asList("tan", "nat")));
     output.add(new ArrayList<>(Arrays.asList("bat")));
+    output.add(new ArrayList<>(Arrays.asList("tan", "nat")));
     assertEquals(output, HashTable.groupAnagrams(input));
 
     String[] input2 = new String[] {"abc", "cba", "bac", "foo", "bar"};
     List<List<String>> output2 = new ArrayList<>();
+    output2.add(new ArrayList<>(Arrays.asList("bar")));
     output2.add(new ArrayList<>(Arrays.asList("abc", "cba", "bac")));
     output2.add(new ArrayList<>(Arrays.asList("foo")));
-    output2.add(new ArrayList<>(Arrays.asList("bar")));
-    //    assertEquals(output2, HashTable.groupAnagrams(input2));
+    assertEquals(output2, HashTable.groupAnagrams(input2));
 
     String[] input3 = new String[] {"listen", "silent", "triangle", "integral", "garden", "ranged"};
     List<List<String>> output3 = new ArrayList<>();
