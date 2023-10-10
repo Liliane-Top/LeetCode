@@ -1,7 +1,9 @@
 package nl.top.LeetCode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class HashTable {
 
@@ -98,12 +100,28 @@ public class HashTable {
   public static boolean itemInCommon(int[] array1, int[] array2) {
     HashMap<Integer, Boolean> map = new HashMap<>();
 
-		for (int number : array1) {
-		    map.put(number, true);
-		}
-    for(int number : array2) {
-			if(map.get(number) != null) return true;
+    for (int number : array1) {
+      map.put(number, true);
+    }
+    for (int number : array2) {
+      if (map.get(number) != null) return true;
     }
     return false;
+  }
+
+  public static List<Integer> findDuplicates(int[] nums) {
+    List<Integer> duplicates = new ArrayList<>();
+    HashMap<Integer, String> map = new HashMap<>();
+
+    for (Integer number : nums) {
+      if (map.get(number) == null) {
+        map.put(number, "first");
+      } else if (!map.get(number).contains("second")) {
+        map.put(number, "second");
+        duplicates.add(number);
+      }
+    }
+    Collections.sort(duplicates);
+    return duplicates;
   }
 }
