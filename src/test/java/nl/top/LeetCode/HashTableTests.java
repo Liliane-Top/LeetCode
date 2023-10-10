@@ -125,4 +125,20 @@ public class HashTableTests {
         Arguments.of(new int[] {1, 2, 3, 4, 5}, 7, new int[] {2, 3}),
         Arguments.of(new int[] {}, 0, new int[] {}));
   }
+
+  @ParameterizedTest
+  @MethodSource("subarraySum")
+  void call_subarraySum(int[] input, int target, int[] output) {
+    assertEquals(Arrays.toString(output), Arrays.toString(HashTable.subarraySum(input, target)));
+  }
+
+  public static Stream<Arguments> subarraySum() {
+    return Stream.of(
+        Arguments.of(new int[] {1, 2, 3, 4, 5}, 9, new int[] {1, 3}),
+        Arguments.of(new int[] {-1, 2, 3, -4, 5}, 0, new int[] {0, 3}),
+        Arguments.of(new int[] {1}, 1, new int[] {0, 0}),
+        Arguments.of(new int[] {2, 3, 4, 5, 6}, 3, new int[] {1, 1}),
+        Arguments.of(new int[] {}, 0, new int[] {}),
+        Arguments.of(new int[] {1, 2, 3, 4, 5}, 345, new int[] {}));
+  }
 }

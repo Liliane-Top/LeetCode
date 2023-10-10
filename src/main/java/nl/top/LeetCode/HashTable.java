@@ -216,4 +216,24 @@ public class HashTable {
     }
     return new int[] {};
   }
+
+  public static int[] subarraySum(int[] nums, int target) {
+    int index = 0;
+    int sum = 0;
+    if (target == 0) sum = -1;
+
+    while (sum != target && index < nums.length) {
+      Map<Integer, Integer> map = new HashMap<>();
+      sum = 0;
+      for (int i = index; i < nums.length; i++) {
+        sum += nums[i];
+        map.put(i, nums[i]);
+        if (sum == target) {
+          return new int[] {index, i};
+        }
+      }
+      index++;
+    }
+    return new int[] {};
+  }
 }
