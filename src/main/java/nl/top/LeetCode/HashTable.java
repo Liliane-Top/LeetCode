@@ -1,9 +1,9 @@
 package nl.top.LeetCode;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HashTable {
 
@@ -109,19 +109,35 @@ public class HashTable {
     return false;
   }
 
-  public static List<Integer> findDuplicates(int[] nums) {
-    List<Integer> duplicates = new ArrayList<>();
-    HashMap<Integer, String> map = new HashMap<>();
+  //  public static List<Integer> findDuplicates(int[] nums) {
+  //    List<Integer> duplicates = new ArrayList<>();
+  //    Map<Integer, String> map = new HashMap<>();
+  //
+  //    for (int number : nums) {
+  //      if (map.get(number) == null) {
+  //        map.put(number, "first");
+  //      } else if (!map.get(number).contains("second")) {
+  //        map.put(number, "second");
+  //        duplicates.add(number);
+  //      }
+  //    }
+  //    Collections.sort(duplicates);
+  //    return duplicates;
+  //  }
 
-    for (Integer number : nums) {
-      if (map.get(number) == null) {
-        map.put(number, "first");
-      } else if (!map.get(number).contains("second")) {
-        map.put(number, "second");
-        duplicates.add(number);
+  public static List<Integer> findDuplicates(int[] nums) {
+
+    Map<Integer, Integer> numCounts = new HashMap<>();
+    for (int num : nums) {
+      numCounts.put(num, numCounts.getOrDefault(num, 0) + 1);
+    }
+
+    List<Integer> duplicates = new ArrayList<>();
+    for (Map.Entry<Integer, Integer> entry : numCounts.entrySet()) { // automatically sorted
+      if (entry.getValue() > 1) {
+        duplicates.add(entry.getKey());
       }
     }
-    Collections.sort(duplicates);
     return duplicates;
   }
 }
