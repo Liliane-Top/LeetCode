@@ -140,4 +140,18 @@ public class HashTable {
     }
     return duplicates;
   }
+
+  public static Character firstNonRepeating(String input) {
+    Map<Character, Integer> letters = new HashMap<>();
+    List<Character> singles = new ArrayList<>();
+    for (Character letter : input.toCharArray()) {
+      if (letters.get(letter) == null) { // if it is not in the map add to map and to list
+        letters.put(letter, 1);
+        singles.add(letter);
+      } else if (singles.contains(letter)) { // if it is in the map and in the list remove it.
+        singles.remove(letter);
+      }
+    }
+    return singles.isEmpty() ? null : singles.get(0);
+  }
 }
