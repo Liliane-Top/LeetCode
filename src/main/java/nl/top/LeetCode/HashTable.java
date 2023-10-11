@@ -217,7 +217,7 @@ public class HashTable {
     return new int[] {};
   }
 
-  public static int[] subarraySum(int[] nums, int target) {
+  public static int[] subarraySum2(int[] nums, int target) {
     int index = 0;
     int sum = 0;
     if (target == 0) sum = -1;
@@ -234,6 +234,36 @@ public class HashTable {
       }
       index++;
     }
+    return new int[] {};
+  }
+
+  public static int[] subarraySum(int[] nums, int target) {
+    // A hashmap is created to store the cumulative sum of the elements
+    Map<Integer, Integer> sumIndex = new HashMap<>();
+    // initial key-value pair is added before the first element of the array
+    sumIndex.put(0, -1);
+    // a variable currentSum is initialized to store the cumulative sum
+    int currentSum = 0;
+
+    // a loop that iterates over the input array of ints with index i
+    for (int i = 0; i < nums.length; i++) {
+      // inside the loop currentSum is incremented by the current element nums[i]
+      currentSum += nums[i];
+      // if the hashmap sumIndex contains the key (currentSum - target) it means there is a subarray
+      // whose sum is equal to the target value
+      // in this case we return a subarray with the start index of => the value associated with the
+      // key  (currentSum - target)
+      // in the HashMap incremented by 1) and the end index is i;
+      if (sumIndex.containsKey(currentSum - target)) {
+        return new int[] {sumIndex.get(currentSum - target) + 1, i};
+      } else {
+        // if the HashMap does not contain the key for (currentSum - target) we add the key-value
+        // pair (currentSum, i) to the HashMap
+        // and continue with the next iteration.
+        sumIndex.put(currentSum, i);
+      }
+    }
+		//if the loop completes without finding a subarray with the target sum, an empty array is returned.
     return new int[] {};
   }
 }
