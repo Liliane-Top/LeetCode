@@ -33,12 +33,27 @@ public class MySet {
   public static boolean hasUniqueChars(String input) {
     Set<Character> set = new HashSet<>();
     for (char letter : input.toCharArray()) {
-      if(set.contains(letter)){
-				return false;
+      if (set.contains(letter)) {
+        return false;
       }
-			set.add(letter);
+      set.add(letter);
     }
     return true;
+  }
+
+  public static List<int[]> findPairs(int[] input1, int[] input2, int target) {
+    List<int[]> pairs = new ArrayList<>();
+    Set<Integer> set = new HashSet<>();
+    for (Integer number : input2) {
+      set.add(number);
+    }
+    for (int i = 0; i < input1.length; i++) {
+      int number = target - input1[i];
+      if (set.contains(number)) {
+        pairs.add(new int[] {input1[i], number});
+      }
+    }
+    return pairs;
   }
 
   public static void main(String[] args) {

@@ -41,4 +41,20 @@ public class MySetTests {
         Arguments.of("0123456789", true),
         Arguments.of("abacadaeaf", false));
   }
+
+  @ParameterizedTest
+  @MethodSource("findPairs")
+  void call_findPairs(int[] input1, int[] input2, int target, List<int[]> output) {
+    List<int[]> result = MySet.findPairs(input1, input2, target);
+    Assertions.assertEquals(Arrays.toString(output.get(0)), Arrays.toString(result.get(0)));
+  }
+
+  public static Stream<Arguments> findPairs() {
+    return Stream.of(
+        Arguments.of(
+            new int[] {1, 2, 3, 4, 5},
+            new int[] {2, 4, 6, 8, 10},
+            7,
+            new ArrayList<>(Arrays.asList(new int[] {1, 6}, new int[] {3, 4}, new int[] {5, 2}))));
+  }
 }
