@@ -135,6 +135,7 @@ public class HashTableTests {
   public static Stream<Arguments> subarraySum() {
     return Stream.of(
         Arguments.of(new int[] {1, 2, 3, 4, 5}, 9, new int[] {1, 3}),
+        Arguments.of(new int[] {1, 2, 3, 4, -4, -3, 12}, 12, new int[] {6, 6}),
         Arguments.of(new int[] {-1, 2, 3, -4, 5}, 0, new int[] {0, 3}),
         Arguments.of(new int[] {1}, 1, new int[] {0, 0}),
         Arguments.of(new int[] {2, 3, 4, 5, 6}, 3, new int[] {1, 1}),
