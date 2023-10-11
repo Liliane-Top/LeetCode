@@ -1,5 +1,6 @@
 package nl.top.LeetCode;
 
+import static nl.top.LeetCode.MySet.hasUniqueChars;
 import static nl.top.LeetCode.MySet.removeDuplicates;
 
 import java.util.ArrayList;
@@ -24,5 +25,20 @@ public class MySetTests {
         Arguments.of(
             new ArrayList<>(Arrays.asList(1, 2, 3, 4, 1, 2, 5, 6, 7, 3, 4, 8, 9, 5)),
             new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9))));
+  }
+
+  @ParameterizedTest
+  @MethodSource("uniqueChars")
+  void call_hasUniqueChars(String input, Boolean output) {
+    Assertions.assertEquals(output, hasUniqueChars(input));
+  }
+
+  public static Stream<Arguments> uniqueChars() {
+    return Stream.of(
+        Arguments.of("abcdefg", true),
+        Arguments.of("hello", false),
+        Arguments.of("", true),
+        Arguments.of("0123456789", true),
+        Arguments.of("abacadaeaf", false));
   }
 }

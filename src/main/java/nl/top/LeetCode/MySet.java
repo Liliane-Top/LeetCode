@@ -21,8 +21,25 @@ public class MySet {
 
   public static List<Integer> removeDuplicates(List<Integer> input) {
     Set<Integer> set = new HashSet<>(input);
-		return new ArrayList<>(set);
-		}
+    return new ArrayList<>(set);
+  }
+
+  //  public static boolean hasUniqueChars(String input) {
+  //    if (input.length() == 0) return true;
+  //    Set<String> set = new HashSet<>(Arrays.asList(input.split("")));
+  //    return input.length() == set.size();
+  //  }
+
+  public static boolean hasUniqueChars(String input) {
+    Set<Character> set = new HashSet<>();
+    for (char letter : input.toCharArray()) {
+      if(set.contains(letter)){
+				return false;
+      }
+			set.add(letter);
+    }
+    return true;
+  }
 
   public static void main(String[] args) {
     myHashset.add(1);
