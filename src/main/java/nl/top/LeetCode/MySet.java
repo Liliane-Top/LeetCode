@@ -78,17 +78,14 @@ public class MySet {
       numbers.add(number);
     }
     int count = 0;
-		int highestCount = 0;
+    int highestCount = 0;
     for (int i = 0; i < nums.length; i++) {
-			count = 1;
-      int currentValue = nums[i];
-      while (numbers.contains(currentValue + 1)) {
-        currentValue++;
+      count = 1;
+      while (numbers.contains(nums[i] + 1)) {
+        nums[i]++;
         count++;
       }
-			if(count > highestCount){
-				highestCount = count;
-			}
+      highestCount = Math.max(highestCount, count);
     }
     return highestCount;
   }
