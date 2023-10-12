@@ -31,4 +31,24 @@ public class Graph {
     }
     return false;
   }
+
+  public boolean removeEdge(String vertex1, String vertex2) {
+    if (adjacentList.get(vertex1) != null && adjacentList.get(vertex2) != null) {
+      adjacentList.get(vertex1).remove(vertex2);
+      adjacentList.get(vertex2).remove(vertex1);
+      return true;
+    }
+    return false;
+  }
+
+  public boolean removeVertex(String vertex) {
+    if (adjacentList.get(vertex) != null) {
+      for (String item : adjacentList.get(vertex)) {
+        adjacentList.get(item).remove(vertex);
+      }
+      adjacentList.remove(vertex);
+      return true;
+    }
+    return false;
+  }
 }
