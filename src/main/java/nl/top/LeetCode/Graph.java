@@ -22,4 +22,13 @@ public class Graph {
     }
     return false;
   }
+
+  public boolean addEdge(String vertex1, String vertex2) {
+    if (adjacentList.get(vertex1) != null && adjacentList.get(vertex2) != null) {
+      adjacentList.get(vertex1).add(vertex2);
+      adjacentList.get(vertex2).add(vertex1);
+      return true;
+    }
+    return false;
+  }
 }
