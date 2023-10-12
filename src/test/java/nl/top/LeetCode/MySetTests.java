@@ -2,12 +2,12 @@ package nl.top.LeetCode;
 
 import static nl.top.LeetCode.MySet.hasUniqueChars;
 import static nl.top.LeetCode.MySet.removeDuplicates;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,7 +17,7 @@ public class MySetTests {
   @ParameterizedTest
   @MethodSource("happyFlow")
   void call_removeDuplicates(List<Integer> input, List<Integer> output) {
-    Assertions.assertEquals(output, removeDuplicates(input));
+    assertEquals(output, removeDuplicates(input));
   }
 
   public static Stream<Arguments> happyFlow() {
@@ -30,7 +30,7 @@ public class MySetTests {
   @ParameterizedTest
   @MethodSource("uniqueChars")
   void call_hasUniqueChars(String input, Boolean output) {
-    Assertions.assertEquals(output, hasUniqueChars(input));
+    assertEquals(output, hasUniqueChars(input));
   }
 
   public static Stream<Arguments> uniqueChars() {
@@ -46,7 +46,7 @@ public class MySetTests {
   @MethodSource("findPairs")
   void call_findPairs(int[] input1, int[] input2, int target, List<int[]> output) {
     List<int[]> result = MySet.findPairs(input1, input2, target);
-    Assertions.assertEquals(Arrays.toString(output.get(0)), Arrays.toString(result.get(0)));
+    assertEquals(Arrays.toString(output.get(0)), Arrays.toString(result.get(0)));
   }
 
   public static Stream<Arguments> findPairs() {
@@ -56,5 +56,26 @@ public class MySetTests {
             new int[] {2, 4, 6, 8, 10},
             7,
             new ArrayList<>(Arrays.asList(new int[] {1, 6}, new int[] {3, 4}, new int[] {5, 2}))));
+  }
+
+  @ParameterizedTest
+  @MethodSource("consecutive")
+  void call_longestConsecutiveSequence(int[] input, int output) {
+    assertEquals(output, MySet.longestConsecutiveSequence(input));
+  }
+
+  public static Stream<Arguments> consecutive() {
+    return Stream.of(
+        Arguments.of(new int[] {100, 4, 200, 1, 3, 2}, 4),
+        Arguments.of(
+            new int[] {
+              3, 3, 3,
+            },
+            1),
+        Arguments.of(new int[] {5}, 1),
+        Arguments.of(new int[] {}, 0),
+        Arguments.of(new int[] {1, 2, 3, 1, 2, 3, 1, 2, 3}, 3),
+        Arguments.of(new int[] {0, 5, -4, 6, -3, -2, 10, -1}, 5),
+        Arguments.of(new int[] {1, 3, 5, 7, 9, -1}, 1));
   }
 }

@@ -56,6 +56,43 @@ public class MySet {
     return pairs;
   }
 
+  //  public static int longestConsecutiveSequence(int[] nums) {
+  //    Arrays.sort(nums);
+  //		int count = 1;
+  //		Set<Integer> score = new HashSet<>();
+  //    for (int i = 0; i < nums.length -1; i++) {
+  //			if(nums[i] + 1 == nums[i + 1]){
+  //				count++;
+  //			} else {
+  //				score.add(count);
+  //				count = 1;
+  //			}
+  //    }
+  //
+  //    return Collections.max(score);
+  //  }
+
+  public static int longestConsecutiveSequence(int[] nums) {
+    Set<Integer> numbers = new HashSet<>();
+    for (int number : nums) {
+      numbers.add(number);
+    }
+    int count = 0;
+		int highestCount = 0;
+    for (int i = 0; i < nums.length; i++) {
+			count = 1;
+      int currentValue = nums[i];
+      while (numbers.contains(currentValue + 1)) {
+        currentValue++;
+        count++;
+      }
+			if(count > highestCount){
+				highestCount = count;
+			}
+    }
+    return highestCount;
+  }
+
   public static void main(String[] args) {
     myHashset.add(1);
     myHashset.add(2);
