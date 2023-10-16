@@ -117,7 +117,7 @@ public class Heap {
     }
   }
 
-  public static int findKthSmallest(int[] nums, int k) {
+  public static int findKthSmallest1(int[] nums, int k) {
     Integer[] numbers = Arrays.stream(nums).boxed().toArray(Integer[]::new);
     Arrays.sort(numbers, Collections.reverseOrder());
 
@@ -136,5 +136,17 @@ public class Heap {
     }
 
     return myHeap.getHeap().get(myHeap.getHeap().size() - k);
+  }
+
+  public static int findKthSmallest(int[] nums, int k) {
+    Heap myHeap = new Heap();
+    for (int number : nums) {
+      myHeap.insert(number);
+			//every kth insertion will be removed after it is inserted into the heap which has always the highest value
+      if (myHeap.getHeap().size() > k) {
+        myHeap.remove();
+      }
+    }
+    return myHeap.remove();
   }
 }
