@@ -2,7 +2,11 @@ package nl.top.LeetCode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class BinarySearchTreeTests {
 
@@ -28,9 +32,9 @@ public class BinarySearchTreeTests {
     assertEquals(82, bst.root.right.right.value);
   }
 
-  @Test
-  void call_contains() {
-
+  @ParameterizedTest
+  @MethodSource("contains")
+  void call_contains(boolean output, int input) {
     BinarySearchTree bst = new BinarySearchTree();
     bst.insert(47);
     bst.insert(21);
@@ -39,9 +43,11 @@ public class BinarySearchTreeTests {
     bst.insert(52);
     bst.insert(82);
     bst.insert(27);
+    assertEquals(output, bst.contains(input));
+    assertEquals(output, bst.rContains(input));
+  }
 
-    assertTrue(bst.contains(27));
-    assertTrue(bst.contains(82));
-    assertFalse(bst.contains(45));
+  public static Stream<Arguments> contains() {
+    return Stream.of(Arguments.of(true, 27), Arguments.of(true, 82), Arguments.of(false, 45));
   }
 }
