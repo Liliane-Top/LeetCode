@@ -156,12 +156,10 @@ public class Heap {
     Heap myHeap = new Heap();
     for (int i = 0; i < nums.length; i++) {
       myHeap.insert(nums[i]);
-      if (myHeap.getHeap().get(0).intValue() == nums[i]) {
-        result.add(nums[i]);
-      } else{
-				result.add(myHeap.getHeap().get(0).intValue());
-      }
+			//first Node is always the highest value so no need to check if it is the top node
+      result.add(myHeap.getHeap().get(0));
     }
     return result;
   }
+
 }
