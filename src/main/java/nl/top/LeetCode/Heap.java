@@ -142,11 +142,26 @@ public class Heap {
     Heap myHeap = new Heap();
     for (int number : nums) {
       myHeap.insert(number);
-			//every kth insertion will be removed after it is inserted into the heap which has always the highest value
+      // every kth insertion will be removed after it is inserted into the heap which has always the
+      // highest value
       if (myHeap.getHeap().size() > k) {
         myHeap.remove();
       }
     }
     return myHeap.remove();
+  }
+
+  public static List<Integer> streamMax(int[] nums) {
+    List<Integer> result = new ArrayList<>();
+    Heap myHeap = new Heap();
+    for (int i = 0; i < nums.length; i++) {
+      myHeap.insert(nums[i]);
+      if (myHeap.getHeap().get(0).intValue() == nums[i]) {
+        result.add(nums[i]);
+      } else{
+				result.add(myHeap.getHeap().get(0).intValue());
+      }
+    }
+    return result;
   }
 }
