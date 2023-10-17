@@ -50,6 +50,27 @@ public class BinarySearchTreeTests {
 
     assertEquals(27, bst.root.left.right.value);
     assertEquals(82, bst.root.right.right.value);
+    assertEquals(18, bst.minValue(bst.root));
+    assertEquals(52, bst.minValue(bst.root.right));
+    assertEquals(82, bst.minValue(bst.root.right.right));
+  }
+
+  @Test
+  void call_delete() {
+
+    BinarySearchTree bst = new BinarySearchTree();
+    bst.insert(2);
+    bst.insert(1);
+    bst.insert(3);
+    bst.deleteNode(2);
+
+    assertEquals(1, bst.root.value);
+    assertEquals(3, bst.root.right.value);
+    assertEquals(null, bst.root.left);
+    bst.deleteNode(3);
+    assertEquals(1, bst.root.value);
+    assertEquals(3, bst.root.right.value);
+    assertEquals(null, bst.root.left);
   }
 
   @ParameterizedTest
