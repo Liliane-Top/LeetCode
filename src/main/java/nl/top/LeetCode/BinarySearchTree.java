@@ -42,6 +42,24 @@ public class BinarySearchTree {
     }
   }
 
+  private Node rInsert(Node currentNode, int value) {
+		
+		if(currentNode == null) return new Node(value);
+		
+    if(value < currentNode.value ){
+			currentNode.left = rInsert(currentNode.left, value);
+    } else {
+			currentNode.right = rInsert(currentNode.right, value);
+    }
+return currentNode;
+
+  }
+
+  public void rInsert(int value) {
+		if(root == null) root = new Node(value);
+    rInsert(root, value);
+  }
+
   public boolean contains(int value) {
     Node temp = root;
     while (temp != null) {
@@ -56,19 +74,19 @@ public class BinarySearchTree {
     return false;
   }
 
-	private boolean rContains(Node currentNode, int value){
-		if(currentNode == null) return false;
-		
-		if(currentNode.value == value) return true;
+  private boolean rContains(Node currentNode, int value) {
+    if (currentNode == null) return false;
+
+    if (currentNode.value == value) return true;
 
     if (value < currentNode.value) {
       return rContains(currentNode.left, value);
-		} else {
-			return  rContains(currentNode.right, value);
+    } else {
+      return rContains(currentNode.right, value);
     }
-	}
+  }
 
-	public boolean rContains(int value){
-		return rContains(root, value);
-	}
+  public boolean rContains(int value) {
+    return rContains(root, value);
+  }
 }

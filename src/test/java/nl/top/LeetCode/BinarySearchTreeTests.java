@@ -24,12 +24,16 @@ public class BinarySearchTreeTests {
     bst.insert(76);
     bst.insert(18);
     bst.insert(52);
-
     bst.insert(82);
     bst.insert(27);
 
     assertEquals(27, bst.root.left.right.value);
     assertEquals(82, bst.root.right.right.value);
+
+    bst.rInsert(11);
+    assertEquals(27, bst.root.left.right.value);
+    assertEquals(82, bst.root.right.right.value);
+    assertEquals(11, bst.root.left.left.left.value);
   }
 
   @ParameterizedTest
