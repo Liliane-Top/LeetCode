@@ -47,11 +47,11 @@ public class BinarySearchTree {
 		if(currentNode == null) return new Node(value);
 		
     if(value < currentNode.value ){
-			currentNode.left = rInsert(currentNode.left, value);
-    } else {
-			currentNode.right = rInsert(currentNode.right, value);
-    }
-return currentNode;
+currentNode.left = rInsert(currentNode.left, value);
+		} else if ( value > currentNode.value){
+currentNode.right = rInsert(currentNode.right, value);}
+	    return currentNode;
+
 
   }
 

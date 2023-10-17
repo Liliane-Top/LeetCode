@@ -36,6 +36,22 @@ public class BinarySearchTreeTests {
     assertEquals(11, bst.root.left.left.left.value);
   }
 
+  @Test
+  void call_rInsert() {
+    BinarySearchTree bst = new BinarySearchTree();
+    bst.rInsert(47);
+    bst.rInsert(21);
+    bst.rInsert(76);
+    bst.rInsert(18);
+    bst.rInsert(52);
+    bst.rInsert(47);
+    bst.rInsert(82);
+    bst.rInsert(27);
+
+    assertEquals(27, bst.root.left.right.value);
+    assertEquals(82, bst.root.right.right.value);
+  }
+
   @ParameterizedTest
   @MethodSource("contains")
   void call_contains(boolean output, int input) {
