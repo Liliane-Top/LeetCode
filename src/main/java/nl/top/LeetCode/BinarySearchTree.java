@@ -97,7 +97,7 @@ public class BinarySearchTree {
   }
 
   public void deleteNode(int value) {
-    deleteNode(root, value);
+    root = deleteNode(root, value);
   }
 
   private Node deleteNode(Node currentNode, int value) {
@@ -109,12 +109,12 @@ public class BinarySearchTree {
     // If so, the method performs a recursive call to delete the node in the left subtree of the
     // currentNode.
     if (value < currentNode.value) {
-      deleteNode(currentNode.left, value);
+      currentNode.left = deleteNode(currentNode.left, value);
       // Conversely, if the value to be deleted is more than the value of currentNode, the method
       // performs a recursive call
       // to delete the node in the right subtree of the currentNode.
     } else if (value > currentNode.value) {
-      deleteNode(currentNode.right, value);
+      currentNode.right = deleteNode(currentNode.right, value);
       // If the value to be deleted is equal to the value of the currentNode,
       // the method proceeds to delete the currentNode.
     } else {
@@ -127,21 +127,23 @@ public class BinarySearchTree {
         // returning the right child, effectively deleting the currentNode.
       } else if (currentNode.left == null) {
         currentNode = currentNode.right;
+
         // If the currentNode has only a left child (the right child is null), the method bypasses
         // the currentNode by
         // returning the left child, effectively deleting the currentNode.
       } else if (currentNode.right == null) {
-        return currentNode.left;
+        currentNode = currentNode.left;
         // If the currentNode has both left and right children, the method finds the minimum value
         // in the right subtree
         // of the currentNode (which is the next larger value in the BST) and replaces the value of
         // the currentNode with this minimum value. This replacement preserves the BST property.
       } else {
-        currentNode.value = minValue(currentNode.right);
+        int minimum = minValue(currentNode.right);
+        currentNode.value = minimum;
         // The method then performs a recursive call to delete this minimum value from the right
         // subtree of the currentNode,
         // effectively removing the duplicate resulting from the replacement in the previous step.
-        currentNode.right = deleteNode(currentNode.right, minValue(currentNode.right));
+        currentNode.right = deleteNode(currentNode.right, minimum);
       }
     }
     // Finally, the method returns the currentNode (which could be a different node due to the

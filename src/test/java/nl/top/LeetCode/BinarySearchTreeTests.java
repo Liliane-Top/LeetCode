@@ -58,19 +58,63 @@ public class BinarySearchTreeTests {
   @Test
   void call_delete() {
 
+    BinarySearchTree bst3 = new BinarySearchTree();
+    bst3.insert(3);
+    bst3.insert(1);
+
+    bst3.deleteNode(3);
+    assertEquals(1, bst3.root.value);
+    assertEquals(null, bst3.root.right);
+    assertEquals(null, bst3.root.left);
+    assertFalse(bst3.contains(3));
+
     BinarySearchTree bst = new BinarySearchTree();
     bst.insert(2);
     bst.insert(1);
     bst.insert(3);
-    bst.deleteNode(2);
 
-    assertEquals(1, bst.root.value);
-    assertEquals(3, bst.root.right.value);
-    assertEquals(null, bst.root.left);
+    bst.deleteNode(2);
+    assertEquals(3, bst.root.value);
+    assertEquals(null, bst.root.right);
+    assertEquals(1, bst.root.left.value);
+
     bst.deleteNode(3);
     assertEquals(1, bst.root.value);
-    assertEquals(3, bst.root.right.value);
+    assertEquals(null, bst.root.right);
     assertEquals(null, bst.root.left);
+
+    bst.insert(47);
+    bst.insert(21);
+    bst.insert(76);
+    bst.insert(18);
+    bst.insert(52);
+    bst.insert(82);
+    bst.insert(27);
+
+    // delete a leaf node
+    bst.deleteNode(18);
+    assertFalse(bst.contains(18));
+    // delete a Node with 1 child
+    bst.deleteNode(21); // has a child on the right
+    assertFalse(bst.contains(21));
+    assertEquals(1, bst.root.value);
+    assertEquals(27, bst.root.right.left.value);
+
+    bst.insert(26);
+    bst.deleteNode(27); // has a child on the left
+    assertEquals(26, bst.root.right.left.value);
+
+    // delete a node with 2 children
+    bst.deleteNode(76);
+    assertFalse(bst.contains(76));
+    assertEquals(52, bst.root.right.right.left.value);
+    assertEquals(82, bst.root.right.right.value);
+    assertEquals(
+        52,
+        bst.minValue(
+            bst.root
+                .right
+                .right)); // it is the minimum value to the right of the current node which is 82
   }
 
   @ParameterizedTest
