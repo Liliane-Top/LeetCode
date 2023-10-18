@@ -2,6 +2,7 @@ package nl.top.LeetCode;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -134,5 +135,24 @@ public class BinarySearchTreeTests {
 
   public static Stream<Arguments> contains() {
     return Stream.of(Arguments.of(true, 27), Arguments.of(true, 82), Arguments.of(false, 45));
+  }
+
+  @Test
+  void call_breadthFirstSearch() {
+    BinarySearchTree myBST = new BinarySearchTree();
+
+    myBST.insert(47);
+    myBST.insert(21);
+    myBST.insert(76);
+    myBST.insert(18);
+    myBST.insert(27);
+    myBST.insert(52);
+    myBST.insert(82);
+
+    System.out.println("\nBreadth First Search:");
+    System.out.println(myBST.breadthFirstSearch());
+    ArrayList<Integer> results = myBST.breadthFirstSearch();
+    assertEquals(47, results.get(0));
+    assertEquals(27, results.get(4));
   }
 }

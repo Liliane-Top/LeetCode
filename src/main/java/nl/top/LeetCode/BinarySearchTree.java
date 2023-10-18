@@ -1,5 +1,9 @@
 package nl.top.LeetCode;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
   Node root; // parent
 
@@ -152,5 +156,24 @@ public class BinarySearchTree {
     // This return value allows the parent nodes to update their child pointers appropriately,
     // thereby updating the tree structure.
     return currentNode;
+  }
+
+  public ArrayList<Integer> breadthFirstSearch() {
+    Node currentNode = root;
+    Queue<Node> nodes = new LinkedList<>(); // FIFO
+    ArrayList<Integer> results = new ArrayList<>();
+    nodes.add(currentNode);
+
+    while (nodes.size() > 0) {
+      currentNode = nodes.remove();
+      results.add(currentNode.value);
+      if (currentNode.left != null) {
+        nodes.add(currentNode.left);
+      }
+      if (currentNode.right != null) {
+        nodes.add(currentNode.right);
+      }
+    }
+		return results;
   }
 }
