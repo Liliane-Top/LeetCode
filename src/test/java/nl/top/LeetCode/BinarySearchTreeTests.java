@@ -155,4 +155,25 @@ public class BinarySearchTreeTests {
     assertEquals(47, results.get(0));
     assertEquals(27, results.get(4));
   }
+
+  @Test
+  void call_depthFirstPreOrder() {
+    BinarySearchTree myBST = new BinarySearchTree();
+
+    myBST.insert(47);
+    myBST.insert(21);
+    myBST.insert(76);
+    myBST.insert(18);
+    myBST.insert(27);
+    myBST.insert(52);
+    myBST.insert(82);
+
+    System.out.println("\nDepth First Pre Order:");
+    System.out.println(myBST.depthFirstSearchPreOrder());
+    ArrayList<Integer> results = myBST.depthFirstSearchPreOrder();
+    assertEquals(47, results.get(0));
+    assertEquals(27, results.get(3));
+    assertEquals(76, results.get(4));
+    assertEquals(52, results.get(5));
+  }
 }
