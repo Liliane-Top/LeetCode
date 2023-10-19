@@ -3,6 +3,7 @@ package nl.top.LeetCode;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinarySearchTree {
   Node root; // parent
@@ -211,5 +212,73 @@ public class BinarySearchTree {
     }
     new Traverse(root);
     return results;
+  }
+
+  public ArrayList<Integer> depthFirstSearchInOrder() {
+    ArrayList<Integer> results = new ArrayList<>();
+
+    class Traverse {
+      Traverse(Node currentNode) {
+        if (currentNode.left != null) {
+          new Traverse(currentNode.left);
+        }
+
+        results.add(currentNode.value);
+
+        if (currentNode.right != null) {
+          new Traverse(currentNode.right);
+        }
+      }
+    }
+    new Traverse(root);
+    return results;
+  }
+
+  public Integer kthSmallest1(int k) {
+    // use a Stack<Node> and in-order traversal technique
+    // when stack.size is equal to k return that Node's values
+
+    Stack<Node> stack = new Stack<>();
+
+    class Traverse {
+      Traverse(Node currentNode) {
+
+        if (currentNode.left != null) {
+          new Traverse(currentNode.left);
+        }
+        stack.push(currentNode);
+
+        if (currentNode.right != null) {
+          new Traverse(currentNode.right);
+        }
+      }
+    }
+    new Traverse(root);
+    while (stack.size() != k) {
+      stack.pop();
+    }
+    return stack.pop().value;
+  }
+
+  public Integer kthSmallest(int k) {
+    Stack<Node> stack = new Stack<>();
+    Node currentNode = root;
+
+    while (!stack.isEmpty() || currentNode != null) {
+      while (currentNode != null) {
+        stack.push(currentNode); // adding root including all nodes to the left
+        currentNode = currentNode.left;
+      }
+
+      currentNode = stack.pop(); // remove all the nodes from the stack one by one
+      k--;
+
+      if (k == 0) {
+        return currentNode.value; // return the kth smallest number
+      }
+
+      currentNode = currentNode.right;
+    }
+    return null;
   }
 }
