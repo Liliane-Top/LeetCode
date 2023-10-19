@@ -194,4 +194,22 @@ public class BinarySearchTree {
     new Traverse(root);
     return results;
   }
+
+  public ArrayList<Integer> depthFirstSearchPostOrder() {
+    ArrayList<Integer> results = new ArrayList<>();
+    class Traverse {
+      Traverse(Node currentNode) {
+
+        if (currentNode.left != null) {
+          new Traverse(currentNode.left);
+        }
+        if (currentNode.right != null) {
+          new Traverse(currentNode.right);
+        }
+        results.add(currentNode.value);
+      }
+    }
+    new Traverse(root);
+    return results;
+  }
 }
