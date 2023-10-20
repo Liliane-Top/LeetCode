@@ -18,8 +18,8 @@ public class LinkedList {
     length = 1;
   }
 
-  class Node {
-    int value;
+  public class Node {
+    public int value;
     Node next;
 
     public Node(int value) {
@@ -350,5 +350,26 @@ public class LinkedList {
     }
 
     head = dummy.next;
+  }
+
+  public void bubbleSort() {
+    if (length < 2) return;
+    Node sortedUntil = tail.next; // or set it to null
+
+    while (sortedUntil != head.next) {
+      Node currentNode = head; // after each pass start with the first element in the list
+      while (currentNode.next
+          != sortedUntil) { // the sortedUntil moves to the left so not set to null => it will hang
+        if (currentNode.value > currentNode.next.value) {
+          int temp = currentNode.value;
+          currentNode.value = currentNode.next.value;
+          currentNode.next.value = temp;
+        }
+        currentNode = currentNode.next;
+      }
+      sortedUntil =
+          currentNode; // set the marker to the last sorted element so it is moving to the left till
+                       // it reach 2nd element in the list
+    }
   }
 }

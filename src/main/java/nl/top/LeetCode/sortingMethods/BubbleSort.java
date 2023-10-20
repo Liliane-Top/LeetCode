@@ -2,6 +2,12 @@ package nl.top.LeetCode.sortingMethods;
 
 /**
  * comparing the first element with the next and swapping if first is > next
+ *
+ * The Bubble Sort algorithm works by repeatedly swapping adjacent elements if they are in the wrong order.
+ * The process continues until no more swaps are needed, which indicates that the list is sorted.
+ * This method in particular starts the sorting from the beginning of the list each time,
+ * bubbling the largest unsorted element to its correct place, until the entire list is sorted.
+ * big O(N^2)
  */
 public class BubbleSort {
 
