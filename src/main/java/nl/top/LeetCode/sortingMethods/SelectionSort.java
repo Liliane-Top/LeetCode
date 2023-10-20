@@ -1,5 +1,8 @@
 package nl.top.LeetCode.sortingMethods;
 
+/**
+ * indexes required find the lowest value and take the index of that value and swap with the first item
+ */
 public class SelectionSort {
 
   public static void selectionSort(int[] array) {

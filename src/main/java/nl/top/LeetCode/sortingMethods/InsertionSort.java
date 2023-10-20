@@ -1,5 +1,8 @@
 package nl.top.LeetCode.sortingMethods;
 
+/**
+ * insertion sort compares second with first/before value
+ */
 public class InsertionSort {
 
   public static void insertionSort(int[] array) {
