@@ -329,4 +329,54 @@ class LinkedListTests {
     assertEquals(5, myLinkedList.get(4).value);
     assertEquals(6, myLinkedList.get(5).value);
   }
+
+  @Test
+  void call_selectionSortLL() {
+    LinkedList myLinkedList = new LinkedList(4);
+    myLinkedList.append(2);
+    myLinkedList.append(6);
+    myLinkedList.append(5);
+    myLinkedList.append(1);
+    myLinkedList.append(3);
+
+    System.out.println("Unsorted Linked List:");
+    myLinkedList.printList();
+
+    myLinkedList.selectionSort();
+
+    System.out.println("\nSorted Linked List:");
+    myLinkedList.printList();
+
+    assertEquals(1, myLinkedList.get(0).value);
+    assertEquals(2, myLinkedList.get(1).value);
+    assertEquals(3, myLinkedList.get(2).value);
+    assertEquals(4, myLinkedList.get(3).value);
+    assertEquals(5, myLinkedList.get(4).value);
+    assertEquals(6, myLinkedList.get(5).value);
+  }
+
+  @Test
+  void call_insertionSortLL() {
+    LinkedList myLinkedList = new LinkedList(4);
+    myLinkedList.append(2);
+    myLinkedList.append(6);
+    myLinkedList.append(5);
+    myLinkedList.append(1);
+    myLinkedList.append(3);
+
+    System.out.println("Unsorted Linked List:");
+    myLinkedList.printList();
+
+    myLinkedList.insertionSort();
+
+    System.out.println("\nSorted Linked List:");
+    myLinkedList.printList();
+
+    assertEquals(1, myLinkedList.get(0).value);
+    assertEquals(2, myLinkedList.get(1).value);
+    assertEquals(3, myLinkedList.get(2).value);
+    assertEquals(4, myLinkedList.get(3).value);
+    assertEquals(5, myLinkedList.get(4).value);
+    assertEquals(6, myLinkedList.get(5).value);
+  }
 }

@@ -369,7 +369,92 @@ public class LinkedList {
       }
       sortedUntil =
           currentNode; // set the marker to the last sorted element so it is moving to the left till
-                       // it reach 2nd element in the list
+      // it reach 2nd element in the list
     }
+  }
+
+  public void selectionSort() {
+    if (length < 2) return;
+
+    Node current = head;
+    while (current.next != null) {
+      Node smallest = current;
+      Node innerCurrent = smallest.next;
+      while (innerCurrent != null) {
+        if (smallest.value > innerCurrent.value) {
+          smallest = innerCurrent;
+        }
+        innerCurrent = innerCurrent.next;
+      }
+      if (smallest != current) {
+        int temp = smallest.value;
+        smallest.value = current.value;
+        current.value = temp;
+      }
+      current = current.next;
+    }
+    // after sorting, current is the last node. update tail
+    tail = current;
+  }
+
+  public void insertionSort1() {
+    if (length < 2) return;
+    Node sorted = head;
+    Node unsorted = sorted.next;
+
+    while (unsorted != null) {
+      Node pointer = unsorted;
+      unsorted = unsorted.next;
+      while (pointer != null) {
+        if (pointer.value < sorted.value) {
+          int temp = pointer.value;
+          pointer.value = sorted.value;
+          sorted.value = temp;
+        }
+        pointer = pointer.next;
+      }
+      sorted = sorted.next;
+    }
+  }
+
+  public void insertionSort() {
+    if (length < 2) return;
+    // create a sorted list with the first element and the next element is pointing to null;
+    Node sorted = head;
+    Node unsorted = head.next;
+    sorted.next = null;
+
+    // iterate over the unsorted list
+    while (unsorted != null) {
+      Node current = unsorted;
+      unsorted = unsorted.next;
+      // if the current element is smaller than the item in the sorted list prepend it to the sorted
+      // list
+      // and update the head of the sortedList
+      if (current.value < sorted.value) {
+        current.next = sorted;
+        sorted = current;
+      } else {
+        // if the current item is not smaller than the sorted item
+        // find the right spot inside the sorted list
+        Node pointer = sorted;
+        while (pointer.next != null && current.value > pointer.next.value) {
+          // move to the next element in the sorted list
+          pointer = pointer.next;
+        }
+        // insert the current element after the pointer
+        current.next = pointer.next;
+        pointer.next = current;
+      }
+    }
+    // update the head of the sortedList
+    head = sorted;
+
+    // Update the tail of the sortedList
+    Node temp = head;
+    while (temp.next != null) {
+      temp = temp.next;
+    }
+    tail = temp;
   }
 }
