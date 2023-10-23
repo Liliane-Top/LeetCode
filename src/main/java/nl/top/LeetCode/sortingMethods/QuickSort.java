@@ -21,4 +21,21 @@ public class QuickSort {
 		swap(array, swapIndex, pivotIndex);
 		return swapIndex;
 	}
+
+	public static void quickSort(int[] array){
+    quickSortHelper(array, 0, array.length -1);
+	}
+
+	private static void quickSortHelper(int[] array, int leftIndex, int rightIndex){
+    if (leftIndex < rightIndex) {
+      int pivotIndex = pivot(array, leftIndex, rightIndex);
+
+      for (int i = leftIndex; i < pivotIndex; i++) {
+        quickSortHelper(array, leftIndex, pivotIndex - 1);
+      }
+      for (int i = pivotIndex; i < rightIndex; i++) {
+        quickSortHelper(array, pivotIndex + 1, rightIndex);
+      }
+		}
+	}
 }
