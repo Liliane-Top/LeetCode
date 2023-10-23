@@ -379,4 +379,25 @@ class LinkedListTests {
     assertEquals(5, myLinkedList.get(4).value);
     assertEquals(6, myLinkedList.get(5).value);
   }
+
+  @Test
+  void call_mergeLL() {
+    LinkedList l1 = new LinkedList(1);
+    l1.append(3);
+    l1.append(6);
+    l1.append(7);
+
+    LinkedList l2 = new LinkedList(2);
+    l2.append(4);
+    l2.append(8);
+    l2.append(11);
+    l2.append(12);
+
+    l1.merge(l2);
+    l1.printList();
+    assertEquals(1, l1.get(0).value);
+    assertEquals(2, l1.get(1).value);
+    assertEquals(3, l1.get(2).value);
+    assertEquals(4, l1.get(3).value);
+  }
 }

@@ -457,4 +457,54 @@ public class LinkedList {
     }
     tail = temp;
   }
+
+  public void merge(LinkedList otherList) {
+    // create a local variable that is set to the head of the second list
+    Node otherHead = otherList.getHead();
+    // creat a dummy node which will serve as the head of the merged list.
+    Node dummy = new Node(0);
+    // create a pointer that points to the dummy node
+    Node current = dummy;
+    // As long as both list still have nodes
+    while (head != null && otherHead != null) {
+      // if the element form original list is smaller than otherList set the current.next to point
+      // to it and move both one up
+      if (head.value < otherHead.value) {
+        current.next = head;
+        head = head.next;
+        // if element of the original list is bigger add the element to the current.next and move
+        // one up;
+      } else {
+        current.next = otherHead;
+        otherHead = otherHead.next;
+      }
+      // either way move the pointer to the right.
+      current = current.next;
+    }
+
+    //    while (head != null) {
+    //      current.next = head;
+    //      head = head.next;
+    //      current = current.next;
+    //    }
+    //
+    //    while (otherHead != null) {
+    //      current.next = otherHead;
+    //      otherHead = otherHead.next;
+    //      current = current.next;
+    //    }
+
+    // as it is a linked list we only have to connect the last element current.next to the first
+    // element of the list that remains.
+    if (head != null) {
+      current.next = head;
+    } else {
+      current.next = otherHead;
+      tail = otherList.getTail();
+    }
+    // to remove the dummy node with value 0
+    head = dummy.next;
+    // to adjust the length of the merged list so add the length of the otherlist
+    length += otherList.getLength();
+  }
 }
