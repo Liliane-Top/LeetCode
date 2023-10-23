@@ -32,7 +32,7 @@ class QuickSortTests {
 
   @Test
   void call_quickSort() {
-    int[] myArray = {4, 6, 1, 7, 3, 2, 5};
+    int[] myArray = {12, 4, 6, 11, 1, 7, 3, 2, 5, 17, 18};
 
     QuickSort.quickSort(myArray);
     System.out.println(Arrays.toString(myArray));
