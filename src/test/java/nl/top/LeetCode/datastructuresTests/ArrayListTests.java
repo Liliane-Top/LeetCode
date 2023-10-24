@@ -41,4 +41,20 @@ class ArrayListTests {
         of(new int[] {0, 0, 0, 0, 0}, new int[] {0, 0}),
         of(new int[] {100, 200, 300, 400, 500}, new int[] {500, 100}));
   }
+
+  @ParameterizedTest
+  @MethodSource("happyFlow3")
+  void call_longestString(String[] input, String output) {
+    assertEquals(output, ArrayList.findLongestString(input));
+  }
+
+  public static Stream<Arguments> happyFlow3() {
+    return Stream.of(
+        of(new String[] {"apple", "banana", "kiwi", "pear"}, "banana"),
+        of(new String[] {"cat", "giraffe", "elephant", "hippopotamus"}, "hippopotamus"),
+        of(new String[] {"sun", "moon", "planet", "universe"}, "universe"),
+        of(new String[] {"java", "python", "javascript", "c"}, "javascript"),
+        of(new String[] {"", "a", "aa", "aaa"}, "aaa"),
+        of(new String[] {"", "a", "bbb", "aa", "aaa"}, "bbb"));
+  }
 }

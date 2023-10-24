@@ -1,10 +1,11 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructuresTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import nl.top.LeetCode.datastructures.DoublyLinkedList;
 import org.junit.jupiter.api.Test;
 
-public class DoublyLinkedListTests {
+class DoublyLinkedListTests {
 
   @Test
   void call_constructor() {

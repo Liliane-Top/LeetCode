@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 import lombok.Getter;
 
@@ -16,9 +16,9 @@ public class DoublyLinkedList {
     length = 1;
   }
 
-  class Node {
-    int value;
-    Node next;
+  public class Node {
+    public int value;
+    public Node next;
     Node prev;
 
     public Node(int value) {
