@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 public class MyQueue { // FIFO first in is First out "denk aan een rij mensen voor loket"
   private Stack2<Integer> stack1;

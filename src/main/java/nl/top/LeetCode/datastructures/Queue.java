@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 public class Queue {
   // FIFO first in first out

@@ -1,13 +1,15 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructuresTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import nl.top.LeetCode.datastructures.MyQueue;
+import nl.top.LeetCode.datastructures.Queue;
 import org.junit.jupiter.api.Test;
 
-public class QueueTests {
+class QueueTests {
 
   @Test
   void call_constructor() {

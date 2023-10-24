@@ -1,10 +1,11 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructuresTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import nl.top.LeetCode.datastructures.LinkedList;
 import org.junit.jupiter.api.Test;
 
 class LinkedListTests {
@@ -21,8 +22,8 @@ class LinkedListTests {
     assertNull(list.getTail().next);
 
     list.makeEmpty();
-    assertEquals(null, list.getHead());
-    assertEquals(null, list.getTail());
+    assertNull(list.getHead());
+    assertNull(list.getTail());
     assertEquals(0, list.getLength());
     list.append(5);
     assertEquals(1, list.getLength());
@@ -51,7 +52,7 @@ class LinkedListTests {
     assertEquals(3, list.removeLast().value);
     assertEquals(8, list.removeLast().value);
     assertEquals(5, list.removeLast().value);
-    assertEquals(null, list.removeLast());
+    assertNull(list.removeLast());
     assertEquals(0, list.getLength());
     assertNull(list.getHead());
     assertNull(list.getTail());
@@ -159,8 +160,8 @@ class LinkedListTests {
     list.append(89);
     list.append(67);
 
-    assertEquals(null, list.remove(4));
-    assertEquals(null, list.remove(-1));
+    assertNull(list.remove(4));
+    assertNull(list.remove(-1));
     assertEquals(89, list.remove(2).value);
     assertEquals(5, list.remove(0).value);
     assertEquals(2, list.getLength());

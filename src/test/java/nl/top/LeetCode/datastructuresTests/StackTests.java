@@ -1,7 +1,9 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructuresTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import nl.top.LeetCode.datastructures.Stack;
+import nl.top.LeetCode.datastructures.Stack2;
 import org.junit.jupiter.api.Test;
 
 class StackTests {

@@ -2,7 +2,7 @@ package nl.top.LeetCode.sortingMethodsTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import nl.top.LeetCode.LinkedList;
+import nl.top.LeetCode.datastructures.LinkedList;
 import nl.top.LeetCode.sortingMethods.BubbleSort;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

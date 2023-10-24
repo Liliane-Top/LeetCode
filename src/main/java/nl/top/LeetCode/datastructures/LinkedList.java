@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +20,7 @@ public class LinkedList {
 
   public class Node {
     public int value;
-    Node next;
+    public Node next;
 
     public Node(int value) {
       this.value = value;

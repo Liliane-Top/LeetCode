@@ -1,13 +1,14 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructuresTests;
 
-import static nl.top.LeetCode.MySet.hasUniqueChars;
-import static nl.top.LeetCode.MySet.removeDuplicates;
+import static nl.top.LeetCode.datastructures.MySet.hasUniqueChars;
+import static nl.top.LeetCode.datastructures.MySet.removeDuplicates;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
+import nl.top.LeetCode.datastructures.MySet;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

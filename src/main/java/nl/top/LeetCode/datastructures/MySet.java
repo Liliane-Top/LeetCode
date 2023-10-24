@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 import java.util.ArrayList;
 import java.util.HashSet;

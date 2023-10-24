@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 public class Stack {
   // LIFO = last in first out push (erbij) and pop(eraf)

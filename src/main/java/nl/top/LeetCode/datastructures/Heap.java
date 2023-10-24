@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -156,10 +156,9 @@ public class Heap {
     Heap myHeap = new Heap();
     for (int i = 0; i < nums.length; i++) {
       myHeap.insert(nums[i]);
-			//first Node is always the highest value so no need to check if it is the top node
+      // first Node is always the highest value so no need to check if it is the top node
       result.add(myHeap.getHeap().get(0));
     }
     return result;
   }
-
 }
