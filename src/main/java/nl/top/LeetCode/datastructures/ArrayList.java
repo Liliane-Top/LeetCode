@@ -114,19 +114,39 @@ public class ArrayList {
     return writePointer;
   }
 
+  public static int maxProfit2(int[] prices) {
+    int profit = 0;
+
+    for (int i = 0; i < prices.length; i++) {
+      for (int j = i + 1; j < prices.length; j++)
+        if (prices[i] < prices[j]) {
+          int dif = prices[j] - prices[i];
+          if (dif > profit) {
+            profit = dif;
+          }
+        }
+    }
+
+    return profit;
+  }
+
   public static int maxProfit(int[] prices) {
-	  int profit = 0;
+    // this solution has a big O of (n)
+    // initialize minPrice with highest possible value of integer value
+    int minPrice = Integer.MAX_VALUE;
+    // initialize maxProfit to 0
+    int maxProfit = 0;
 
-	  for(int i = 0; i < prices.length; i++){
-		  for(int j = i+1; j< prices.length; j++)
-			  if(prices[i] < prices[j] ){
-				  int dif = prices[j] - prices[i];
-				  if( dif > profit){
-					  profit = dif;
-				  }
-			  }
-	  }
-
-	  return profit;
+    // loop over all prices
+    for (int price : prices) {
+      // if day price is lower than minPrice, update minPrice
+      minPrice = Math.min(minPrice, price);
+      // calculate possible profit in case day price is higher than minPrice money to be made
+      int profit = price - minPrice;
+      // check if this is the highest possible profit so far other wise update maxProfit
+      maxProfit = Math.max(maxProfit, profit);
+    }
+    // after checking all prices return highest profit
+    return maxProfit;
   }
 }
