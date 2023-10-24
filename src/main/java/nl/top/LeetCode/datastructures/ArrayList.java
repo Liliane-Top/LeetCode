@@ -12,4 +12,22 @@ public class ArrayList {
     }
 		return i;
 	}
+
+	public static int[] findMaxMin(int[] array){
+    // option 1: sort in ascending order return first and last
+    // option 2: set int min = first and int max = first and start comparing each item
+		int max = array[0];
+		int min = array[0];
+    for (int i = 1; i < array.length; i++) {
+			if(array[i] > max){
+				max = array[i];
+			}
+
+			if(array[i] < min){
+				min = array[i];
+			}
+
+    }
+		return new int[]{max, min};
+	}
 }
