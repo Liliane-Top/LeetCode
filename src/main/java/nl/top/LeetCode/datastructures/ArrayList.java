@@ -115,6 +115,18 @@ public class ArrayList {
   }
 
   public static int maxProfit(int[] prices) {
-    return 0;
+	  int profit = 0;
+
+	  for(int i = 0; i < prices.length; i++){
+		  for(int j = i+1; j< prices.length; j++)
+			  if(prices[i] < prices[j] ){
+				  int dif = prices[j] - prices[i];
+				  if( dif > profit){
+					  profit = dif;
+				  }
+			  }
+	  }
+
+	  return profit;
   }
 }
