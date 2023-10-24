@@ -27,10 +27,10 @@ public class QuickSort {
   }
 
   private static void quickSortHelper(int[] array, int leftIndex, int rightIndex) {
-    if (leftIndex < rightIndex) {// this is the base case
-			//every recursion a new pivot index will be found
+    if (leftIndex < rightIndex) { // this is the base case
+      // every recursion a new pivot index will be found
       int pivotIndex = pivot(array, leftIndex, rightIndex);
-//no need for a for loop. Recursion will keep running till base case
+      // no need for a for loop. Recursion will keep running till base case
       quickSortHelper(array, leftIndex, pivotIndex - 1);
       quickSortHelper(array, pivotIndex + 1, rightIndex);
     }

@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -6,12 +6,12 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class BinarySearchTree {
-  Node root; // parent
+  public Node root; // parent
 
-  class Node {
-    int value;
-    Node left;
-    Node right;
+  public class Node {
+    public int value;
+    public Node left;
+    public Node right;
 
     public Node(int value) {
       this.value = value;
