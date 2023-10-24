@@ -74,4 +74,19 @@ class ArrayListTests {
         of(new int[] {5, 5}, 1),
         of(new int[] {1, 1, 1, 1, 1}, 1));
   }
+
+  @ParameterizedTest
+  @MethodSource("maxProfit")
+  void call_maxProfit(int[] input, int output) {
+    assertEquals(output, ArrayList.maxProfit(input));
+  }
+
+  public static Stream<Arguments> maxProfit() {
+    return Stream.of(
+        of(new int[] {7, 1, 5, 3, 6, 4}, 5),
+        of(new int[] {7, 6, 5, 4, 3, 2, 1}, 0),
+        of(new int[] {1, 2, 3, 4, 5, 6, 7}, 6),
+        of(new int[] {3, 2, 6, 5, 0, 3}, 4),
+        of(new int[] {2, 4, 1}, 2));
+  }
 }

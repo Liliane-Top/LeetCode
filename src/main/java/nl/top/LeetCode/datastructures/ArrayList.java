@@ -113,4 +113,8 @@ public class ArrayList {
 
     return writePointer;
   }
+
+  public static int maxProfit(int[] prices) {
+    return 0;
+  }
 }
