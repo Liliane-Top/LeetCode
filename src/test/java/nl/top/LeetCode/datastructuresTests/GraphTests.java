@@ -1,8 +1,9 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructuresTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import nl.top.LeetCode.datastructures.Graph;
 import org.junit.jupiter.api.Test;
 
 class GraphTests {

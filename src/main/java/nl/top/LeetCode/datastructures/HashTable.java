@@ -1,4 +1,4 @@
-package nl.top.LeetCode;
+package nl.top.LeetCode.datastructures;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -263,7 +263,8 @@ public class HashTable {
         sumIndex.put(currentSum, i);
       }
     }
-		//if the loop completes without finding a subarray with the target sum, an empty array is returned.
+    // if the loop completes without finding a subarray with the target sum, an empty array is
+    // returned.
     return new int[] {};
   }
 }

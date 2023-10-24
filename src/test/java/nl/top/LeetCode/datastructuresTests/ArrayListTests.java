@@ -57,4 +57,21 @@ class ArrayListTests {
         of(new String[] {"", "a", "aa", "aaa"}, "aaa"),
         of(new String[] {"", "a", "bbb", "aa", "aaa"}, "bbb"));
   }
+
+  @ParameterizedTest
+  @MethodSource("happyFlow4")
+  void call_removeDuplicates(int[] input, int output) {
+    assertEquals(output, ArrayList.removeDuplicates(input));
+  }
+
+  public static Stream<Arguments> happyFlow4() {
+    return Stream.of(
+        of(new int[] {0, 0, 1, 1, 1, 2, 2, 3, 3, 4}, 5),
+        of(new int[] {1, 1, 2}, 2),
+        of(new int[] {-1, 0, 0, 0, 3, 3}, 3),
+        of(new int[] {}, 0),
+        of(new int[] {5}, 1),
+        of(new int[] {5, 5}, 1),
+        of(new int[] {1, 1, 1, 1, 1}, 1));
+  }
 }

@@ -71,12 +71,46 @@ public class ArrayList {
   }
 
   public static String findLongestString(String[] stringList) {
-		String longest = "";
-		for(String item: stringList){
-			if(item.length() > longest.length()){
-				longest = item;
-			}
-		}
+    String longest = "";
+    for (String item : stringList) {
+      if (item.length() > longest.length()) {
+        longest = item;
+      }
+    }
     return longest;
+  }
+
+  public static int removeDuplicates2(int[] nums) {
+    // input is a sorted array with duplicates
+    if (nums.length == 0) {
+      return 0;
+    }
+
+    int i = 0;
+    for (int j = 0; j < nums.length; j++) {
+      // skip first element
+      if (nums[j] != nums[i]) {
+        i++;
+        nums[i] = nums[j];
+      }
+    }
+    return i + 1;
+  }
+
+  public static int removeDuplicates(int[] nums) {
+    if (nums.length == 0) {
+      return 0;
+    }
+
+    int writePointer = 1;
+
+    for (int readPointer = 1; readPointer < nums.length; readPointer++) {
+      if (nums[readPointer] != nums[readPointer - 1]) {
+        nums[writePointer] = nums[readPointer];
+        writePointer++;
+      }
+    }
+
+    return writePointer;
   }
 }
