@@ -173,37 +173,60 @@ public class ArrayList {
   }
 
   // a solution with space complexity(1) no additional space is required
+  // The reason this works is because reversing sections of the array and then the entire array
+  // has the effect of rotating the elements.
+  // This method is more efficient than a naive approach that would shift the elements one-by-one,
+  // which would take more time for large k.
 
   public static void rotate(int[] nums, int k) {
     // reduce k to it equivalent value within array length range
-	  // as long as k is shorter than the length it remains the same
-	  //if it has the same length nothing happend as modules will be 0
-	  //if k > array.length then we deduct the length
-	  // same as what I did as I deducted it if k is higher than the length
+    // as long as k is shorter than the length it remains the same
+    // if it has the same length nothing happend as modules will be 0
+    // if k > array.length then we deduct the length
+    // same as what I did as I deducted it if k is higher than the length
     k = k % nums.length;
 
     // reverse the first part of the array (from start to length of k)
-    for (int start = 0, end = nums.length-k-1; start < end; start++, end--) {
-			//swap elements at position 'start' and 'end'
-		  int temp = nums[start];
-		  nums[start] = nums[end];
-		  nums[end] = temp;
-	  }
-
-    // reverse the second part of the array ( from length k till end)
-    for (int start = nums.length-k, end = nums.length -1; start < end; start++, end--) {
-	    //swap elements at position 'start' and 'end'
-	    int temp = nums[start];
-	    nums[start] = nums[end];
-	    nums[end] = temp;
+    for (int start = 0, end = nums.length - k - 1; start < end; start++, end--) {
+      // swap elements at position 'start' and 'end'
+      int temp = nums[start];
+      nums[start] = nums[end];
+      nums[end] = temp;
     }
 
-		//reverse the whole array
-	  for(int start = 0, end = nums.length - 1; start < end; start++, end--) {
-		  //swap elements at position 'start' and 'end'
-		  int temp = nums[start];
-		  nums[start] = nums[end];
-		  nums[end] = temp;
-	  }
+    // reverse the second part of the array ( from length k till end)
+    for (int start = nums.length - k, end = nums.length - 1; start < end; start++, end--) {
+      // swap elements at position 'start' and 'end'
+      int temp = nums[start];
+      nums[start] = nums[end];
+      nums[end] = temp;
+    }
+
+    // reverse the whole array
+    for (int start = 0, end = nums.length - 1; start < end; start++, end--) {
+      // swap elements at position 'start' and 'end'
+      int temp = nums[start];
+      nums[start] = nums[end];
+      nums[end] = temp;
+    }
+  }
+
+  public static int maxSubarray(int[] nums) {
+    if (nums.length == 0) return 0;
+
+    int highestSum = Integer.MIN_VALUE;
+    int sum = 0;
+
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] + sum > 0) {
+        sum += nums[i];
+        highestSum = Math.max(highestSum, sum);
+      } else if (highestSum < 0) {
+        highestSum = Math.max(highestSum, nums[i]);
+      } else {
+        sum = 0;
+      }
+    }
+    return highestSum;
   }
 }

@@ -105,4 +105,18 @@ class ArrayListTests {
         of(new int[] {1}, 0, new int[] {1}),
         of(new int[] {1, 2, 3, 4, 5, 6}, 6, new int[] {1, 2, 3, 4, 5, 6}));
   }
+
+  @ParameterizedTest
+  @MethodSource("maxSubarray")
+  void call_maxSubarray(int[] input, int sum) {
+    assertEquals(sum, ArrayList.maxSubarray(input));
+  }
+
+  public static Stream<Arguments> maxSubarray() {
+    return Stream.of(
+        of(new int[] {-2, 1, -3, 4, -1, 2, 1, -5, 4}, 6),
+        of(new int[] {1, 2, 3, -4, 5, 6}, 13),
+        of(new int[] {-1, -2, -3, -4, -5}, -1),
+        of(new int[] {1, -1, 1, -1, 1}, 1));
+  }
 }
