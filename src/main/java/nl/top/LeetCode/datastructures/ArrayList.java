@@ -211,7 +211,7 @@ public class ArrayList {
     }
   }
 
-  public static int maxSubarray(int[] nums) {
+  public static int maxSubarray2(int[] nums) {
     if (nums.length == 0) return 0;
 
     int highestSum = Integer.MIN_VALUE;
@@ -228,5 +228,25 @@ public class ArrayList {
       }
     }
     return highestSum;
+  }
+
+  public static int maxSubarray(int[] nums) {
+    // check if the array is empty then return 0
+    if (nums.length == 0) return 0;
+
+    // initialize the maxSum and currentSum with the first element of the array
+    int maxSum = nums[0];
+    int currentSum = nums[0];
+
+    // loop through the rest of the array
+    for (int i = 1; i < nums.length; i++) {
+      // update the current sum to be the larger between the current number and the current sum
+      // added with the current number
+      currentSum = Math.max(nums[i], currentSum + nums[i]);
+      // Update the maximum sum to be the larger between the old maximum sum and the updated current
+      // sum
+      maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
   }
 }
