@@ -152,10 +152,10 @@ public class ArrayList {
     return maxProfit;
   }
 
-  public static void rotate(int[] nums, int k) {
-if(nums.length == 1){
-	return;
-}
+  public static void rotate1(int[] nums, int k) {
+    if (nums.length == 1) {
+      return;
+    }
     int[] temp = Arrays.copyOf(nums, nums.length);
 
     if (k > nums.length) {
@@ -170,5 +170,40 @@ if(nums.length == 1){
         nums[i] = temp[newIndex + temp.length];
       }
     }
+  }
+
+  // a solution with space complexity(1) no additional space is required
+
+  public static void rotate(int[] nums, int k) {
+    // reduce k to it equivalent value within array length range
+	  // as long as k is shorter than the length it remains the same
+	  //if it has the same length nothing happend as modules will be 0
+	  //if k > array.length then we deduct the length
+	  // same as what I did as I deducted it if k is higher than the length
+    k = k % nums.length;
+
+    // reverse the first part of the array (from start to length of k)
+    for (int start = 0, end = nums.length-k-1; start < end; start++, end--) {
+			//swap elements at position 'start' and 'end'
+		  int temp = nums[start];
+		  nums[start] = nums[end];
+		  nums[end] = temp;
+	  }
+
+    // reverse the second part of the array ( from length k till end)
+    for (int start = nums.length-k, end = nums.length -1; start < end; start++, end--) {
+	    //swap elements at position 'start' and 'end'
+	    int temp = nums[start];
+	    nums[start] = nums[end];
+	    nums[end] = temp;
+    }
+
+		//reverse the whole array
+	  for(int start = 0, end = nums.length - 1; start < end; start++, end--) {
+		  //swap elements at position 'start' and 'end'
+		  int temp = nums[start];
+		  nums[start] = nums[end];
+		  nums[end] = temp;
+	  }
   }
 }
