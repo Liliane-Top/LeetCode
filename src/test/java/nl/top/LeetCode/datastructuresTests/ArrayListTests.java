@@ -89,4 +89,20 @@ class ArrayListTests {
         of(new int[] {3, 2, 6, 5, 0, 3}, 4),
         of(new int[] {2, 4, 1}, 2));
   }
+
+  @ParameterizedTest
+  @MethodSource("rotate")
+  void call_rotate(int[] array, int k, int[] output) {
+    ArrayList.rotate(array, k);
+    assertEquals(Arrays.toString(output), Arrays.toString(array));
+  }
+
+  public static Stream<Arguments> rotate() {
+    return Stream.of(
+        of(new int[] {1, 2, 3, 4, 5, 6, 7}, 3, new int[] {5, 6, 7, 1, 2, 3, 4}),
+        of(new int[] {-1, -100, 3, 99}, 2, new int[] {3, 99, -1, -100}),
+        of(new int[] {1, 2}, 3, new int[] {2, 1}),
+        of(new int[] {1}, 0, new int[] {1}),
+        of(new int[] {1, 2, 3, 4, 5, 6}, 6, new int[] {1, 2, 3, 4, 5, 6}));
+  }
 }

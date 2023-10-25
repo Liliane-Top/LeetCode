@@ -1,5 +1,7 @@
 package nl.top.LeetCode.datastructures;
 
+import java.util.Arrays;
+
 public class ArrayList {
   public static int removeElement(int[] nums, int value) {
     int i = 0;
@@ -148,5 +150,25 @@ public class ArrayList {
     }
     // after checking all prices return highest profit
     return maxProfit;
+  }
+
+  public static void rotate(int[] nums, int k) {
+if(nums.length == 1){
+	return;
+}
+    int[] temp = Arrays.copyOf(nums, nums.length);
+
+    if (k > nums.length) {
+      k -= nums.length;
+    }
+
+    for (int i = temp.length - 1; i >= 0; i--) {
+      int newIndex = i - k;
+      if (newIndex >= 0) {
+        nums[i] = temp[newIndex];
+      } else {
+        nums[i] = temp[newIndex + temp.length];
+      }
+    }
   }
 }
